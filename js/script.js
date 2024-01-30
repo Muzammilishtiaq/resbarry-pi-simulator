@@ -376,7 +376,19 @@ $('#analoginputnumbercontrol0 #analoginputincrement0').click(function () {
 });
 
 $('#analoginputnumbercontrol0 #analoginputdecrement0').click(function () {
-  $('#analoginput0voltage').val(parseInt($('#analoginput0voltage').val()) + 1);
+  $('#analoginput0voltage').val(parseInt($('#analoginput0voltage').val()) - 1);
+
+});
+
+// get analog input voltage 1
+$('#analoginputnumbercontrol1 #analoginputincrement1').click(function () {
+  $('#analoginput1voltage').val(parseInt($('#analoginput1voltage').val()) + 1);
+  ;
+
+});
+
+$('#analoginputnumbercontrol1 #analoginputdecrement1').click(function () {
+  $('#analoginput1voltage').val(parseInt($('#analoginput1voltage').val()) - 1);
 
 });
 
