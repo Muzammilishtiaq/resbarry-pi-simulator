@@ -61,17 +61,17 @@ function updatebutton(dataindex) {
 // <====================== update relay button function end ==============================>
 
 // <====================== set relay api function start ==============================>
-function setrelay(index, state) {
+function setrelay(index) {
   $.ajax({
-    url: `${apiUrl}/set_relays?pinNo=${index}`,
+    url: `${apiUrl}/set_relay?pinNo=${index}`,
     method: 'GET',
     dataType: 'json', // Specify the expected data type of the response
     success: function (data) {
-      console.log('pin no is success set relay', state)
+      console.log('pin no is success set relay' ,data)
     },
     error: function (xhr, status, error) {
       // Handle errors
-      console.error('Error:', status, error, state);
+      console.error('Error:', status, error);
     }
   });
 }
@@ -263,13 +263,13 @@ $('#analogoutputnumbercontrol0 #analogoutputincrement0').click(function () {
   var inputField = $(this).siblings('input');
   var value = parseInt(inputField.val());
   inputField.val(value + 1);
-  toggleButtons0(value + 0.1);
+  toggleButtons0(value + 1);
 });
 
 $('#analogoutputnumbercontrol0 #analogoutputdecrement0').click(function () {
   var inputField = $(this).siblings('input');
-      var value = parseInt(inputField.val());
-        inputField.val(value - 1);
+  var value = parseInt(inputField.val());
+  inputField.val(value - 1);
   toggleButtons0(value - 1);
 });
 
@@ -282,25 +282,26 @@ function toggleButtons0(value) {
   }
 
   // Disable increment button if value is 5
-  if (value >= 5) {
+  if (value >= 800) {
     $('.number-control0 .increment0').addClass('disabled');
   } else {
     $('.number-control0 .increment0').removeClass('disabled');
   }
 }
 // ==== 0 voltage stepper end 
+
 // ==== 1 voltage stepper start 
-$('#outputnumbercontrol1 #outputincrement1').click(function () {
+$('#analogoutputnumbercontrol1 #analogoutputincrement1').click(function () {
   var inputField = $(this).siblings('input');
   var value = parseInt(inputField.val());
   inputField.val(value + 1);
   toggleButtons1(value + 1)
 });
 
-$('#outputnumbercontrol1 #outputdecrement1').click(function () {
+$('#analogoutputnumbercontrol1 #analogoutputdecrement1').click(function () {
   var inputField = $(this).siblings('input');
   var value = parseInt(inputField.val());
-    inputField.val(value - 1);
+  inputField.val(value - 1);
   toggleButtons1(value - 1);
 });
 
@@ -313,7 +314,7 @@ function toggleButtons1(value) {
   }
 
   // Disable increment button if value is 5
-  if (value >= 5) {
+  if (value >= 800) {
     $('.number-control1 .increment1').addClass('disabled');
   } else {
     $('.number-control1 .increment1').removeClass('disabled');
@@ -334,13 +335,13 @@ function setanalogOuts(pinon, value) {
     }
   });
 }
-$('#voltage-btn0').click(function () {
+$('#analogoutputvoltage-btn0').click(function () {
   var pinNo = 0;
   var value = parseFloat($('#analogout0voltage').val());
   setanalogOuts(pinNo, value);
   console.log(pinNo, value)
 });
-$('#voltage-btn1').click(function () {
+$('#analogoutputvoltage-btn1').click(function () {
   var pinNo = 1;
   var value = parseFloat($('#analogout1voltage').val());
   setanalogOuts(pinNo, value);
@@ -349,13 +350,15 @@ $('#voltage-btn1').click(function () {
 // <================ = api get_analog input function end =====================>
 
 // <================ = api get_analog input function start =====================>
-function getanaloginput(){
+function getanaloginput() {
   $.ajax({
     url: `${apiUrl}/get_analogIns`,
     method: 'GET',
     dataType: 'json', // Specify the expected data type of the response
     success: function (data) {
       console.log('get analog input is success', data.data);
+      $('#analoginputpin0').html(data.data[0]); // Show value with one decimal place
+      $('#analoginputpin1').html(data.data[1]);
     },
     error: function (xhr, status, error) {
       // Handle errors
@@ -366,30 +369,6 @@ function getanaloginput(){
 }
 $(document).ready(function () {
   getanaloginput();
-});
-
-// get analog input voltage 0
-$('#analoginputnumbercontrol0 #analoginputincrement0').click(function () {
-  $('#analoginput0voltage').val(parseInt($('#analoginput0voltage').val()) + 1);
-  ;
-
-});
-
-$('#analoginputnumbercontrol0 #analoginputdecrement0').click(function () {
-  $('#analoginput0voltage').val(parseInt($('#analoginput0voltage').val()) - 1);
-
-});
-
-// get analog input voltage 1
-$('#analoginputnumbercontrol1 #analoginputincrement1').click(function () {
-  $('#analoginput1voltage').val(parseInt($('#analoginput1voltage').val()) + 1);
-  ;
-
-});
-
-$('#analoginputnumbercontrol1 #analoginputdecrement1').click(function () {
-  $('#analoginput1voltage').val(parseInt($('#analoginput1voltage').val()) - 1);
-
 });
 
 // <================ = api get_analog input function end =====================>

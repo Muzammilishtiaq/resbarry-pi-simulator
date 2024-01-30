@@ -173,6 +173,7 @@ body {
     border: 0px;
     font-size: 20px;
     font-weight: bold;
+    pointer-events: none;
   }
   .number-control button {
     cursor: pointer;
