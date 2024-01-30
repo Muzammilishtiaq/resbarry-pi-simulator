@@ -270,7 +270,7 @@ $('#analogoutputnumbercontrol0 #analogoutputdecrement0').click(function () {
   var inputField = $(this).siblings('input');
       var value = parseInt(inputField.val());
         inputField.val(value - 1);
-  toggleButtons0(value - 0.1);
+  toggleButtons0(value - 1);
 });
 
 function toggleButtons0(value) {
@@ -294,14 +294,14 @@ $('#outputnumbercontrol1 #outputincrement1').click(function () {
   var inputField = $(this).siblings('input');
   var value = parseInt(inputField.val());
   inputField.val(value + 1);
-  toggleButtons1(value + 0.1)
+  toggleButtons1(value + 1)
 });
 
 $('#outputnumbercontrol1 #outputdecrement1').click(function () {
   var inputField = $(this).siblings('input');
   var value = parseInt(inputField.val());
     inputField.val(value - 1);
-  toggleButtons1(value - 0.1);
+  toggleButtons1(value - 1);
 });
 
 function toggleButtons1(value) {
