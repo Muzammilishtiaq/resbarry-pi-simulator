@@ -15,7 +15,7 @@
 
 <body>
     <div class="container main-container gap-5 m-5">
-        <div class="left d-flex gap-2">
+        <div class="left">
 
             <!-- relay button end -->
             <div class="container shadow rounded px-3 py-2">
@@ -226,45 +226,46 @@
                 <h4>AnalogOutput</h4>
                 <div class="voltage-div">
                     <h6>AnalogOuts0</h6>
-                    <div class="number-control0">
-                        <button class="decrement0">-</button>
-                        <input type="text" min="0" max="5" value="" id="analogout0voltage" class="text-center">
-                        <button class="increment0">+</button>
+                    <div class="number-control0" id="analogoutputnumbercontrol0">
+                        <button class="decrement0" id="analogoutputdecrement0">-</button>
+                        <input type="text" min="0" max="5" value="0" id="analogout0voltage" class="text-center">
+                        <button class="increment0" id="analogoutputincrement0">+</button>
                     </div>
-                    <button id="voltage-btn0" class="voltage-btn" type="button"> Send Voltage0</button>
+                    <button id="analogoutputvoltage-btn0" class="voltage-btn" type="button"> Send Voltage0</button>
                 </div>
                 <div class="voltage-div">
                     <h6>AnalogOuts1</h6>
-                    <div class="number-control1">
-                        <button class="decrement1">-</button>
+                    <div class="number-control1" id="analogoutputnumbercontrol1">
+                        <button class="decrement1" id="analogoutputdecrement1">-</button>
                         <input type="text" min="0" max="5" value="" id="analogout1voltage" class="text-center">
-                        <button class="increment1">+</button>
+                        <button class="increment1" id="analogoutputincrement1">+</button>
                     </div>
-                    <button id="voltage-btn1" class="voltage-btn" type="button"> Send Voltage1</button>
+                    <button id="analogoutputvoltage-btn1" class="voltage-btn" type="button"> Send Voltage1</button>
 
                 </div>
             </div>
             <!-- get_analogOuts end -->
-            <!-- get_analog input start -->
+
+            <!-- get_analoginput start -->
             <div class="container shadow rounded px-3 py-2 w-100">
-                <h4>Analog Input</h4>
+                <h4>AnalogOutput</h4>
                 <div class="voltage-div">
-                    <h6>Analoginput0</h6>
-                    <div class="number-control0">
-                        <button class="decrement0">-</button>
-                        <input type="text" min="0" max="5" value="" id="analoginput0voltage" class="text-center">
-                        <button class="increment0">+</button>
+                    <h6>AnalogOuts0</h6>
+                    <div class="number-control0" id="analoginputnumbercontrol0">
+                        <button class="decrement0" id="analoginputdecrement0">-</button>
+                        <input type="text" min="0" max="5" value="0" id="analoginput0voltage" class="text-center">
+                        <button class="increment0" id="analoginputincrement0">+</button>
                     </div>
-                    <button id="voltage-btn0" class="voltage-btn" type="button"> Send Voltage0</button>
+                    <button id="analoginputvoltagebtn0" class="voltage-btn" type="button"> Send Voltage0</button>
                 </div>
                 <div class="voltage-div">
-                    <h6>Analoginput1</h6>
-                    <div class="number-control1">
-                        <button class="decrement1">-</button>
-                        <input type="text" min="0" max="5" value="" id="analoginput1voltage" class="text-center">
-                        <button class="increment1">+</button>
+                    <h6>AnalogOuts1</h6>
+                    <div class="number-control1" id="analoginputnumbercontrol1">
+                        <button class="decrement1" id="analoginputdecrement1" >-</button>
+                        <input type="text" min="0" max="5" value="0" id="analoginput1voltage" class="text-center">
+                        <button class="increment1" id="analoginputincrement1">+</button>
                     </div>
-                    <button id="voltage-btn1" class="voltage-btn" type="button"> Send Voltage1</button>
+                    <button id="analoginputvoltagebtn1" class="voltage-btn" type="button"> Send Voltage1</button>
 
                 </div>
             </div>

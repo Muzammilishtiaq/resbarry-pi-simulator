@@ -58,10 +58,8 @@ function updatebutton(dataindex) {
     });
   });
 }
-
-
-
 // <====================== update relay button function end ==============================>
+
 // <====================== set relay api function start ==============================>
 function setrelay(index, state) {
   $.ajax({
@@ -261,21 +259,17 @@ $(document).ready(function () {
   getanalogOuts();
 });
 // ==== 0 voltage stepper start 
-$('.number-control0 .increment0').click(function () {
+$('#analogoutputnumbercontrol0 #analogoutputincrement0').click(function () {
   var inputField = $(this).siblings('input');
-  var value = parseFloat(inputField.val()); // Parse as float to handle decimal values
-  if (value < 5) { // Check if the value is less than 5
-    inputField.val((value + 0.1).toFixed(1)); // Increment by 0.1 and show with one decimal place
-  }
+  var value = parseInt(inputField.val());
+  inputField.val(value + 1);
   toggleButtons0(value + 0.1);
 });
 
-$('.number-control0 .decrement0').click(function () {
+$('#analogoutputnumbercontrol0 #analogoutputdecrement0').click(function () {
   var inputField = $(this).siblings('input');
-  var value = parseFloat(inputField.val());
-  if (value >= 0) { // Ensure the value doesn't go below 0.1
-    inputField.val((value - 0.1).toFixed(1)); // Decrement by 0.1 and show with one decimal place
-  }
+      var value = parseInt(inputField.val());
+        inputField.val(value - 1);
   toggleButtons0(value - 0.1);
 });
 
@@ -296,21 +290,17 @@ function toggleButtons0(value) {
 }
 // ==== 0 voltage stepper end 
 // ==== 1 voltage stepper start 
-$('.number-control1 .increment1').click(function () {
+$('#outputnumbercontrol1 #outputincrement1').click(function () {
   var inputField = $(this).siblings('input');
-  var value = parseFloat(inputField.val()); // Parse as float to handle decimal values
-  if (value < 5) { // Check if the value is less than 5
-    inputField.val((value + 0.1).toFixed(1)); // Increment by 0.1 and show with one decimal place
-  }
+  var value = parseInt(inputField.val());
+  inputField.val(value + 1);
   toggleButtons1(value + 0.1)
 });
 
-$('.number-control1 .decrement1').click(function () {
+$('#outputnumbercontrol1 #outputdecrement1').click(function () {
   var inputField = $(this).siblings('input');
-  var value = parseFloat(inputField.val());
-  if (value >= 0) { // Ensure the value doesn't go below 0.1
-    inputField.val((value - 0.1).toFixed(1)); // Decrement by 0.1 and show with one decimal place
-  }
+  var value = parseInt(inputField.val());
+    inputField.val(value - 1);
   toggleButtons1(value - 0.1);
 });
 
@@ -376,6 +366,18 @@ function getanaloginput(){
 }
 $(document).ready(function () {
   getanaloginput();
+});
+
+// get analog input voltage 0
+$('#analoginputnumbercontrol0 #analoginputincrement0').click(function () {
+  $('#analoginput0voltage').val(parseInt($('#analoginput0voltage').val()) + 1);
+  ;
+
+});
+
+$('#analoginputnumbercontrol0 #analoginputdecrement0').click(function () {
+  $('#analoginput0voltage').val(parseInt($('#analoginput0voltage').val()) + 1);
+
 });
 
 // <================ = api get_analog input function end =====================>
