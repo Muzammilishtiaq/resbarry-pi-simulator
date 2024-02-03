@@ -67,7 +67,7 @@ function setrelay(index) {
     method: 'GET',
     dataType: 'json', // Specify the expected data type of the response
     success: function (data) {
-      console.log('pin no is success set relay' ,data)
+      console.log('pin no is success set relay', data)
     },
     error: function (xhr, status, error) {
       // Handle errors

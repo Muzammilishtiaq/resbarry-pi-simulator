@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi simulator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- jquery -->
     <script src="js/jquery.js"></script>
     <!-- bootstrap css -->
@@ -14,261 +14,306 @@
 </head>
 
 <body>
-    <div class="container main-container gap-5 m-5">
-        <div class="left">
+    <div class="main-container container">
+        <!-- ======================top-div start ============================= -->
+        <div class="top-div">
+            <div class="left">
+                <!-- get_analogOuts start -->
+                <div class="analogoutput-div" style="position: relative;">
+                    <h5 class="">ANALOG OUTPUT</h5>
+                    <div class="voltage-div">
+                        <p class="">ANALOG0</p>
+                        <div class="number-control0" id="analogoutputnumbercontrol0">
+                            <button class="decrement0" id="analogoutputdecrement0"><span>-</span></button>
+                            <input type="text" min="0" max="5" value="" id="analogout0voltage" class="text-center">
+                            <button class="increment0" id="analogoutputincrement0"><span>+</span></button>
+                        </div>
+                        <button id="analogoutputvoltage-btn0" class="voltage-btn" type="button"> Send
+                            Voltage0</button>
+                    </div>
+                    <div class="voltage-div">
+                        <p class="">ANALOG1</p>
+                        <div class="number-control1" id="analogoutputnumbercontrol1">
+                            <button class="decrement1" id="analogoutputdecrement1"><span>-</span></button>
+                            <input type="text" min="0" max="5" value="" id="analogout1voltage" class="text-center">
+                            <button class="increment1" id="analogoutputincrement1"><span>+</span></button>
+                        </div>
+                        <button id="analogoutputvoltage-btn1" class="voltage-btn" type="button"> Send
+                            Voltage1</button>
 
-            <!-- relay button end -->
-            <div class="container shadow rounded px-3 py-2">
-                <h4>Relay</h4>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">RELAY0</h5>
-                    <div class="button r button-3" id="relaybutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
+                    <!-- <div class="analogoutput0-wire"></div>
+                    <div class="analogoutput1-wire"></div> -->
                 </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">RELAY1</h5>
-                    <div class="button r button-3" id="relaybutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
+                <!-- get_analogOuts end -->
+                <!-- getgpios start -->
+                <div class="gpio-div" style="position: relative;">
+                    <h5>GPIOS</h5>
+                    <div class="">
+                        <p class="">GPIOS0</p>
+                        <div class="button r button-3" id="gpiosbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">RELAY2</h5>
-                    <div class="button r button-3" id="relaybutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
+                    <div class="">
+                        <p>GPIOS1</p>
+                        <div class="button r button-3" id="gpiosbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">RELAY3</h5>
-                    <div class="button r button-3" id="relaybutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
+                    <div class="">
+                        <p>GPIOS2</p>
+                        <div class="button r button-3" id="gpiosbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
+                    <div class="">
+                        <p>GPIOS3</p>
+                        <div class="button r button-3" id="gpiosbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
+                    </div>
+                    <!-- <div class="gpio0-wire"></div>
+                    <div class="gpio1-wire"></div>
+                    <div class="gpio2-wire"></div>
+                    <div class="gpio3-wire"></div> -->
                 </div>
+                <!-- getgpios end -->
             </div>
-            <!-- relay button end -->
 
-            <!-- digital output button start -->
-            <div class="container shadow rounded px-3 py-2">
-                <h4>Digital Output</h4>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DO0</h5>
-                    <div class="button r button-3" id="digitaloutputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
+            <div class="right">
+                <!-- get_analoginput start -->
+                <div class="analoginput-div" style="position:relative;">
+                    <h5>ANALOG INPUT</h5>
+                    <div class="voltage-div">
+                        <p class="">Pin0 Voltage : <span id="analoginputpin0" class="text-success"> </span></p>
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DO1</h5>
-                    <div class="button r button-3" id="digitaloutputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
+                    <div class="voltage-div">
+                        <p class="">Pin1 Voltage : <span id="analoginputpin1" class="text-success"></span></p>
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
+                    <div class="analoginput0-wire"></div>
+                    <div class="analoginput1-wire"></div>
                 </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DO2</h5>
-                    <div class="button r button-3" id="digitaloutputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
+                <!-- get_analog input end -->
+                <!-- digital input button start -->
+                <div class="digitalinput-div" style="position: relative;">
+                    <h5>Digital Input</h5>
+                    <div class="">
+                        <p class="">DI-0</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DO3</h5>
-                    <div class="button r button-3" id="digitaloutputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
+                    <div class="">
+                        <p>DI-1</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
                     </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
+                    <div class="">
+                        <p>DI-2</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
+                    </div>
+                    <div class="">
+                        <p>DI-3</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
+                    </div>
+                    <div class="">
+                        <p>DI-4</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
+                    </div>
+                    <div class="">
+                        <p>DI-5</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
+                    </div>
+                    <div class="">
+                        <p>DI-6</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
+                    </div>
+                    <div class="">
+                        <p>DI-7</p>
+                        <div class="button r button-3" id="digitalinputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
+                    </div>
+                    <!-- <div class="di0-wire"></div>
+                    <div class="di1-wire"></div>
+                    <div class="di2-wire"></div>
+                    <div class="di3-wire"></div>
+                    <div class="di4-wire"></div>
+                    <div class="di5-wire"></div>
+                    <div class="di6-wire"></div>
+                    <div class="di7-wire"></div> -->
                 </div>
+                <!-- digital input button end -->
+
             </div>
-            <!-- digital output button end -->
 
-            <!-- digital input button start -->
-            <div class="container shadow rounded px-3 py-2">
-                <h4>Digital Input</h4>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI0</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI1</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI2</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI3</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI4</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI5</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI6</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">DI7</h5>
-                    <div class="button r button-3" id="digitalinputbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-input-led-light">
-                </div>
-            </div>
-            <!-- digital input button end -->
 
-            <!-- getgpios start -->
-            <div class="container shadow rounded px-3 py-2">
-                <h4>GPIOS</h4>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">GPIOS0</h5>
-                    <div class="button r button-3" id="gpiosbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">GPIOS1</h5>
-                    <div class="button r button-3" id="gpiosbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">GPIOS2</h5>
-                    <div class="button r button-3" id="gpiosbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <h5 class="mt-3">GPIOS3</h5>
-                    <div class="button r button-3" id="gpiosbutton">
-                        <input type="checkbox" class="checkbox" id="relatstate" />
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                    <img src="./led-light-off.png" alt="led light" class="led-light" id="gpios-led-light">
-                </div>
-            </div>
-            <!-- getgpios end -->
 
-            <!-- get_analogOuts start -->
-            <div class="container shadow rounded px-3 py-2 w-100">
-                <h4>Analog Output</h4>
-                <div class="voltage-div">
-                    <h6>AnalogOuts0</h6>
-                    <div class="number-control0" id="analogoutputnumbercontrol0">
-                        <button class="decrement0" id="analogoutputdecrement0">-</button>
-                        <input type="text" min="0" max="5" value="" id="analogout0voltage" class="text-center">
-                        <button class="increment0" id="analogoutputincrement0">+</button>
-                    </div>
-                    <button id="analogoutputvoltage-btn0" class="voltage-btn" type="button"> Send Voltage0</button>
-                </div>
-                <div class="voltage-div">
-                    <h6>AnalogOuts1</h6>
-                    <div class="number-control1" id="analogoutputnumbercontrol1">
-                        <button class="decrement1" id="analogoutputdecrement1">-</button>
-                        <input type="text" min="0" max="5" value="" id="analogout1voltage" class="text-center">
-                        <button class="increment1" id="analogoutputincrement1">+</button>
-                    </div>
-                    <button id="analogoutputvoltage-btn1" class="voltage-btn" type="button"> Send Voltage1</button>
-
-                </div>
-            </div>
-            <!-- get_analogOuts end -->
-
-            <!-- get_analoginput start -->
-            <div class="container shadow rounded px-3 py-2 w-100">
-                <h4>Analog Input</h4>
-                <div class="voltage-div">
-                    <h5>Pin0 Voltage : <span id="analoginputpin0"> </span></h5>
-                </div>
-                <div class="voltage-div">
-                    <h5>Pin0 Voltage : <span id="analoginputpin1"></span></h5>
-                </div>
-            </div>
-            <!-- get_analog input end -->
         </div>
+        <!-- ======================top-div end ============================= -->
+
+        <!-- ======================middle start ============================= -->
+
+        <div class="middle">
+
+            <img src="./resbarry-pi-board.png" alt="">
+        </div>
+        <!-- ======================middle end ============================= -->
+
+        <!-- ======================bottom div ============================= -->
+        <div class="bottom-div" style="position: relative;">
+            <div class="left">
+                <!-- digital output button start -->
+                <div class="DigitalOutput-div" style="position: relative;">
+                    <h5>Digital Output</h5>
+                    <div class="">
+                        <p class="">DO-0</p>
+                        <div class="button r button-3" id="digitaloutputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
+                    </div>
+                    <div class="">
+                        <p class="">DO-1</p>
+                        <div class="button r button-3" id="digitaloutputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
+                    </div>
+                    <div class="">
+                        <p class="">DO-2</p>
+                        <div class="button r button-3" id="digitaloutputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
+                    </div>
+                    <div class="">
+                        <p class="">DO-3</p>
+                        <div class="button r button-3" id="digitaloutputbutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="digital-output-led-light">
+                    </div>
+                    <!-- <div class="digitaloutput0-wire"></div>
+                    <div class="digitaloutput1-wire"></div>
+                    <div class="digitaloutput2-wire"></div>
+                    <div class="digitaloutput3-wire"></div> -->
+                </div>
+                <!-- digital output button end -->
+
+            </div>
+            <div class="right">
+                <!-- relay button end -->
+                <div class="Relay" style="position: relative;">
+                    <h5>Relay</h5>
+                    <div class="">
+                        <p class="">RELAY0</p>
+                        <div class="button r button-3" id="relaybutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
+                    </div>
+                    <div class="">
+                        <p class="">RELAY1</p>
+                        <div class="button r button-3" id="relaybutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
+                    </div>
+                    <div class="">
+                        <p class="">RELAY2</p>
+                        <div class="button r button-3" id="relaybutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
+                    </div>
+                    <div class="">
+                        <p class="">RELAY3</p>
+                        <div class="button r button-3" id="relaybutton">
+                            <input type="checkbox" class="checkbox" id="relatstate" />
+                            <div class="knobs"></div>
+                            <div class="layer"></div>
+                        </div>
+                        <img src="./led-light-off.png" alt="led light" class="led-light" id="relay-led-light">
+                    </div>
+                    <!-- <div class="relay0-wire"></div>
+                    <div class="relay1-wire"></div>
+                    <div class="relay2-wire"></div>
+                    <div class="relay3-wire"></div> -->
+                </div>
+                <!-- relay button end -->
+            </div>
+
+        </div>
+
+        <!-- ======================bottom-div end ============================= -->
 
     </div>
 
-    <!-- <div class="button r m-5" id="button-3">
-        <input type="checkbox" class="checkbox" />
-        <div class="knobs"></div>
-        <div class="layer"></div>
-    </div> -->
-
     <script src="js/bootstrap.js"></script>
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
 
 </body>
 
