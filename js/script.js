@@ -22,13 +22,7 @@ function getrelay() {
   });
 }
 // <====================== get relay function end ==============================>
-// <====================== document ready get relay function start ==============================>
 
-$(document).ready(function () {
-  getrelay();
-});
-
-// <====================== get relay function end ==============================>
 //
 // <====================== update relay button function start ==============================>
 
@@ -44,18 +38,38 @@ function updatebutton(dataindex) {
       const checkbox = button.querySelector('.checkbox');
       dataindex[index] = checkbox.checked;
       checkbox.checked = dataindex[index];
-      console.log(checkbox.checked);
-      setrelay(index, checkbox.checked);
+      console.log(checkbox.checked = dataindex[index]);
+        setrelay(index);
       // Toggle the LED based on the checkbox state
       const led = leds[index];
-      if (checkbox.checked) {
-        led.src = "./image/led-light-on.png";
+      if (checkbox.checked = dataindex[index]) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
         console.log(`Relay ${index} is ON`);
       } else {
-        led.src = "./image/led-light-off.png";
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
         console.log(`Relay ${index} is OFF`);
       }
     });
+    if (dataindex[index] === true) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = dataindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
+    else if (dataindex[index] === false) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = dataindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
   });
 }
 // <====================== update relay button function end ==============================>
@@ -76,6 +90,13 @@ function setrelay(index) {
   });
 }
 
+// <====================== document ready get relay function start ==============================>
+
+$(document).ready(function () {
+  getrelay();
+});
+
+// <====================== get relay function end ==============================>
 // <================= api or button or set or get digital output function start ===================>
 function getdigitaloutput() {
   $.ajax({
@@ -113,28 +134,48 @@ function digitaloutputbtn(digitaloutputindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "./image/led-light-on.png";
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
         console.log(`digital output ${index} is ON`);
       } else {
-        led.src = "./image/led-light-off.png";
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
         console.log(`digital output ${index} is OFF`);
       }
     });
+    if (digitaloutputindex[index] === true) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = digitaloutputindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
+    else if (digitaloutputindex[index] === false) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = digitaloutputindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
   });
 }
 
 // set api
-function setdigitaloutput(index, state) {
+function setdigitaloutput(index) {
   $.ajax({
     url: `${apiUrl}/setDigitalOutPut?pinNo=${index}`,
     method: 'GET',
     dataType: 'json', // Specify the expected data type of the response
     success: function (data) {
-      console.log('set digital output is success', state, data)
+      console.log('set digital output is success', data)
     },
     error: function (xhr, status, error) {
       // Handle errors
-      console.error('set digital output is Error:', status, error, state);
+      console.error('set digital output is Error:', status, error);
     }
   });
 }
@@ -175,10 +216,10 @@ function digitalinputbtn(digitalinputindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "./image/led-light-on.png";
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
         console.log(`digital output ${index} is ON`);
       } else {
-        led.src = "./image/led-light-off.png";
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
         console.log(`digital output ${index} is OFF`);
       }
     });
@@ -223,10 +264,10 @@ function gpiosbtn(gpiosindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "./image/led-light-on.png";
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
         console.log(`gpios ${index} is ON`);
       } else {
-        led.src = "./image/led-light-off.png";
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
         console.log(`gpios ${index} is OFF`);
       }
     });
