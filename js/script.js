@@ -49,10 +49,10 @@ function updatebutton(dataindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "./led-light-on.png";
+        led.src = "./image/led-light-on.png";
         console.log(`Relay ${index} is ON`);
       } else {
-        led.src = "./led-light-off.png";
+        led.src = "./image/led-light-off.png";
         console.log(`Relay ${index} is OFF`);
       }
     });
@@ -113,10 +113,10 @@ function digitaloutputbtn(digitaloutputindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "./led-light-on.png";
+        led.src = "./image/led-light-on.png";
         console.log(`digital output ${index} is ON`);
       } else {
-        led.src = "./led-light-off.png";
+        led.src = "./image/led-light-off.png";
         console.log(`digital output ${index} is OFF`);
       }
     });
@@ -175,10 +175,10 @@ function digitalinputbtn(digitalinputindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "./led-light-on.png";
+        led.src = "./image/led-light-on.png";
         console.log(`digital output ${index} is ON`);
       } else {
-        led.src = "./led-light-off.png";
+        led.src = "./image/led-light-off.png";
         console.log(`digital output ${index} is OFF`);
       }
     });
@@ -223,10 +223,10 @@ function gpiosbtn(gpiosindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "./led-light-on.png";
+        led.src = "./image/led-light-on.png";
         console.log(`gpios ${index} is ON`);
       } else {
-        led.src = "./led-light-off.png";
+        led.src = "./image/led-light-off.png";
         console.log(`gpios ${index} is OFF`);
       }
     });
