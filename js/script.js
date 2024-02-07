@@ -211,18 +211,38 @@ function digitalinputbtn(digitalinputindex) {
       const checkbox = button.querySelector('.checkbox');
       digitalinputindex[index] = checkbox.checked;
       checkbox.checked = digitalinputindex[index];
-      console.log('digital input true', checkbox.checked);
+      console.log('digital input', digitalinputindex[index]);
       // function setdigitaloutput
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
         led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
-        console.log(`digital output ${index} is ON`);
+        console.log(`digital input ${index} is ON`);
       } else {
         led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
-        console.log(`digital output ${index} is OFF`);
+        console.log(`digital input ${index} is OFF`);
       }
     });
+    if (digitalinputindex[index] === true) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = digitalinputindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
+    else if (digitalinputindex[index] === false) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = digitalinputindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
   });
 }
 // <================ = api get digital input function end =====================>
@@ -271,6 +291,26 @@ function gpiosbtn(gpiosindex) {
         console.log(`gpios ${index} is OFF`);
       }
     });
+    if (gpiosindex[index] === true) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = gpiosindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
+    else if (gpiosindex[index] === false) {
+      const checkbox = button.querySelector('.checkbox');
+      // dataindex[index] = checkbox.checked;
+      checkbox.checked = gpiosindex[index];
+      const led = leds[index];
+      // if (checkbox.checked) {
+        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        // console.log(`Relay ${index} is ON`);
+      // }
+    }
   });
 }
 // <================ = api get_gpios function end =====================>
