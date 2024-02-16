@@ -180,8 +180,6 @@ body {
   display: inline-block;
   width: 25px;
   height: 25px;
-  /* background-color: yellow; */
-
 }
 
 /* in css class many html element control stop  */
@@ -499,7 +497,8 @@ body {
 }
 
 /* mobile responsive */
-@media screen and (min-width:100px) and (max-width:767px) {
+
+@media screen and (min-width:320px) and (max-width:767px) {
   .main-container {
     position: relative;
     width: 100%;
@@ -529,8 +528,8 @@ body {
   }
 
   .led-light {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
 
   .top-div .top-div-left .analogoutput-div .voltage-div {
@@ -558,99 +557,238 @@ body {
     font-size: 6px;
   }
 
+  .middle-div img {
+    width: 50%;
+  }
+
+  /* toggle button css start */
+  .button {
+    position: relative;
+    top: 50%;
+    width: 40px;
+    height: 18px;
+    overflow: hidden;
+  }
+
+  .button-3 .knobs:before {
+    content: "OFF";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 8px;
+    font-weight: bold;
+    text-align: center;
+    line-height: -2;
+    padding: 10px 0px;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .button-3 .checkbox:checked+.knobs:before {
+    content: "ON";
+    left: 20px;
+    background-color: GREEN;
+  }
+
   .gpio0-wire {
-    display: none;
+    border-top: 1px solid var(--gpio-wire-color);
+    border-right: 1px solid var(--gpio-wire-color);
+    width: calc(12.3% - 100px - 15% + 50%);
+    height: 245px;
+    left: 100px;
   }
 
   .gpio1-wire {
-    display: none;
+    width: calc(13.2% - 100px - 15% + 50%);
+    height: 215px;
+    border-top: 1px solid var(--gpio-wire-color);
+    border-right: 1px solid var(--gpio-wire-color);
+    left: 100px;
   }
 
   .gpio2-wire {
-    display: none;
+    width: calc(14.2% - 100px - 15% + 50%);
+    height: 190px;
+    border-top: 1px solid var(--gpio-wire-color);
+    border-right: 1px solid var(--gpio-wire-color);
+    left: 100px;
   }
 
   .gpio3-wire {
-    display: none;
+    width: calc(15.2% - 100px - 15% + 50%);
+    height: 160px;
+    border-top: 1px solid var(--gpio-wire-color);
+    border-right: 1px solid var(--gpio-wire-color);
+    left: 100px;
   }
 
   .analogoutput0-wire {
-    display: none;
+    width: calc(19.1% - 170px - 15% + 50%);
+    height: 330px;
+    border-top: 1px solid var(--analog-output-wire-color);
+    border-right: 1px solid var(--analog-output-wire-color);
+    left: 170px;
   }
 
   .analogoutput1-wire {
-    display: none;
+    width: calc(19.9% - 170px - 15% + 50%);
+    height: 300px;
+    border-top: 1px solid var(--analog-output-wire-color);
+    border-right: 1px solid var(--analog-output-wire-color);
+    left: 170px;
   }
 
   .analoginput0-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + 6%);
+    height: 315px;
+    border-top: 1px solid var(--analog-input-wire-color);
+    border-left: 1px solid var(--analog-input-wire-color);
+    right: 95px;
   }
 
   .analoginput1-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + 5%);
+    height: 270px;
+    border-top: 1px solid var(--analog-input-wire-color);
+    border-left: 1px solid var(--analog-input-wire-color);
+    right: 95px;
   }
 
   .di0-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + 3%);
+    height: 225px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .di1-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + 2%);
+    height: 200px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .di2-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + 1%);
+    height: 170px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .di3-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + 0.3%);
+    height: 140px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .di4-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + -1.5%);
+    height: 115px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .di5-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + -2.5%);
+    height: 85px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .di6-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + -3.2%);
+    height: 60px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .di7-wire {
-    display: none;
+    width: calc(50% - 95px - 15% + -4.2%);
+    height: 30px;
+    border-top: 1px solid var(--digital-input-wire-color);
+    border-left: 1px solid var(--digital-input-wire-color);
+    right: 95px;
   }
 
   .digitaloutput0-wire {
-    display: none;
+    border-bottom: 1px solid var(--digital-output-wire-color);
+    border-right: 1px solid var(--digital-output-wire-color);
+    width: calc(17.6% - 90px - 15% + 50%);
+    height: 70px;
+    position: absolute;
+    top: -30px;
+    left: 90px;
   }
 
   .digitaloutput1-wire {
-    display: none;
+    border-bottom: 1px solid var(--digital-output-wire-color);
+    border-right: 1px solid var(--digital-output-wire-color);
+    width: calc(18.5% - 90px - 15% + 50%);
+    height: 95px;
+    position: absolute;
+    top: -30px;
+    left: 90px;
   }
 
   .digitaloutput2-wire {
-    display: none;
+    border-bottom: 1px solid var(--digital-output-wire-color);
+    border-right: 1px solid var(--digital-output-wire-color);
+    width: calc(19.3% - 90px - 15% + 50%);
+    height: 120px;
+    position: absolute;
+    top: -30px;
+    left: 90px;
   }
 
   .digitaloutput3-wire {
-    display: none;
+    border-bottom: 1px solid var(--digital-output-wire-color);
+    border-right: 1px solid var(--digital-output-wire-color);
+    width: calc(20.2% - 90px - 15% + 50%);
+    height: 150px;
+    left: 90px;
   }
 
   .relay0-wire {
-    display: none;
+    border-bottom: 1px solid var(--digital-input-relay-color);
+    border-left: 1px solid var(--digital-input-relay-color);
+    width: calc(50% - 105px - 15% + 4.2%);
+    height: 65px;
+    right: 105px;
   }
 
   .relay1-wire {
-    display: none;
+    border-bottom: 1px solid var(--digital-input-relay-color);
+    border-left: 1px solid var(--digital-input-relay-color);
+    width: calc(50% - 105px - 15% + 1.5%);
+    height: 95px;
+    right: 105px;
   }
 
   .relay2-wire {
-    display: none;
-  }
+    border-bottom: 1px solid var(--digital-input-relay-color);
+    border-left: 1px solid var(--digital-input-relay-color);
+    width: calc(50% - 105px - 15% + -2%);
+    height: 120px;
+    right: 105px;  }
 
   .relay3-wire {
-    display: none;
-  }
+    border-bottom: 1px solid var(--digital-input-relay-color);
+    border-left: 1px solid var(--digital-input-relay-color);
+    width: calc(50% - 105px - 15% + -4.5%);
+    height: 150px;
+    position: absolute;
+    top: -30px;
+    right: 105px;
+    }
 }
