@@ -1,2336 +1,656 @@
+:root {
+  /* Semantic Colors */
+  --green: #28a745;
+  /* green */
+  --stepper-Setvoltage-btn-color: #28a745;
+  --numberControl-input-bg-color: #ebeced;
+  --text-color-white: #fff;
+  --gpio-wire-color: #000;
+  --analog-output-wire-color: #28a745;
+  --analog-input-wire-color: #28a745;
+  --digital-input-wire-color: #f90000;
+  --digital-output-wire-color: hsl(0, 100%, 50%);
+  --digital-input-relay-color: #ff0909;
+  /* font  */
+  --font-family-style: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f1f9f9;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f1f9f9;
 }
 
 .main-container {
-    position: relative;
-    width: 100%;
-    max-width: 1300px;
-    padding: 30px 0px;
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  padding: 30px 30px;
+  margin: 0 auto;
 }
 
-.top-div {
-    display: flex;
-    justify-content: space-between;
-}
-
-.top-div :nth-child(1) {
-    text-align: left;
-
-}
-
-.top-div .analogoutput-div :nth-child(1) {
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.top-div .analogoutput-div :nth-child(2) p {
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .analogoutput-div :nth-child(3) p {
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div :nth-child(2) {
-    text-align: right;
-}
-
-.top-div .gpio-div h5 {
-    /* margin-top: 15px; */
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0px;
-}
-
-.top-div .gpio-div :nth-child(2) {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.top-div .gpio-div :nth-child(2) p {
-    margin-top: 20px;
-}
-
-.top-div .gpio-div :nth-child(3) {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.top-div .gpio-div :nth-child(3) p {
-    margin-top: 20px;
-}
-
-.top-div .gpio-div :nth-child(4) {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.top-div .gpio-div :nth-child(4) p {
-    margin-top: 20px;
-}
-
-.top-div .gpio-div :nth-child(5) {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.top-div .gpio-div :nth-child(5) p {
-    margin-top: 20px;
-}
-
-
-
-.top-div .analoginput-div :nth-child(1) {
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0px;
-}
-
-.top-div .analoginput-div :nth-child(2) p {
-    font-size: 15px;
-    font-weight: lighter;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0px;
-
-}
-
-.top-div .analoginput-div :nth-child(3) p {
-    font-size: 15px;
-    font-weight: lighter;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0px;
-
-}
-
-.top-div .digitalinput-div {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.top-div .digitalinput-div :nth-child(1) {
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0px;
-}
-
-.top-div .digitalinput-div :nth-child(2) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(2) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .digitalinput-div :nth-child(3) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(3) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .digitalinput-div :nth-child(4) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(4) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .digitalinput-div :nth-child(5) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(5) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .digitalinput-div :nth-child(6) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(6) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .digitalinput-div :nth-child(7) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(7) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .digitalinput-div :nth-child(8) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(8) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.top-div .digitalinput-div :nth-child(9) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-
-}
-
-.top-div .digitalinput-div :nth-child(9) p {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
-.middle {
-    /* padding-right: 120px; */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-}
-
-.middle img {
-    width: 30%;
-    /* height:40% ; */
-}
-
-.bottom-div {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.bottom-div :nth-child(1) {
-    text-align: left;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div {
-    display: flex;
-    flex-direction: column;
-    /* gap: 5px; */
-    margin-bottom: 0px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div h5 {
-    margin-bottom: 0px;
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(2) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(2) p {
-    margin-top: 20px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(3) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(3) p {
-    margin-top: 20px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(4) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(4) p {
-    margin-top: 20px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(5) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-}
-
-.bottom-div :nth-child(1) .DigitalOutput-div :nth-child(5) p {
-    margin-top: 20px;
-}
-
-/* bottom right side   */
-.bottom-div :nth-child(2) {
-    text-align: right;
-}
-
-.bottom-div .Relay h5 {
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-    margin-bottom: 0px;
-}
-
-.bottom-div .Relay :nth-child(2) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-    gap: 5px;
-}
-
-.bottom-div .Relay :nth-child(2) p {
-    margin-top: 20px;
-}
-
-.bottom-div .Relay :nth-child(3) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-
-    gap: 5px;
-
-}
-
-.bottom-div .Relay :nth-child(3) p {
-    margin-top: 20px;
-}
-
-.bottom-div .Relay :nth-child(4) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
-
-    gap: 5px;
-
-}
-
-.bottom-div .Relay :nth-child(4) p {
-    margin-top: 20px;
-}
-
-.bottom-div .Relay :nth-child(5) {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 0px;
-
-
-}
-
-.bottom-div .Relay :nth-child(5) p {
-    margin-top: 20px;
-}
-
-/* stepper */
-.voltage-div {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 5px;
-}
-
-.voltage-div .voltage-btn {
-    height: 40px;
-    background-color: green;
-    color: #fff;
-    border: 0px;
-    padding: 5px 20px;
-}
-
-/* ======toggle buttton start====== */
+/* toggle button  */
 .toggle-button-cover {
-    display: table-cell;
-    position: relative;
-    box-sizing: border-box;
+  display: table-cell;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .button-cover:before {
-    counter-increment: button-counter;
-    content: counter(button-counter);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: #d7e3e3;
-    font-size: 12px;
-    line-height: 1;
-    padding: 5cm;
+  counter-increment: button-counter;
+  content: counter(button-counter);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #d7e3e3;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5cm;
 }
 
 .button-cover,
 .knobs,
 .layer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .button {
-    position: relative;
-    top: 50%;
-    width: 55px;
-    height: 25px;
-    overflow: hidden;
-    margin-top: 10px;
+  position: relative;
+  top: 50%;
+  width: 55px;
+  height: 25px;
+  overflow: hidden;
 }
 
 .button.r,
 .button.r .layer {
-    border-radius: 100px;
+  border-radius: 100px;
 }
 
 .button.b2 {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 .checkbox {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 3;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
 }
 
 .knobs {
-    z-index: 2;
+  z-index: 2;
 }
 
 .layer {
-    width: 100%;
-    background-color: rgba(255, 0, 0, 0.602);
-    transition: 0.3s ease all;
-    z-index: 1;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0.602);
+  transition: 0.3s ease all;
+  z-index: 1;
 }
-
 
 /* Button 3 */
 .button-3 .knobs:before {
-    content: "OFF";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    color: #fff;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 0.2;
-    padding: 11px 0px;
-    margin: 1px;
-    background-color: red;
-    border-radius: 50%;
-    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  content: "OFF";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0.2;
+  padding: 11px 0px;
+  margin: 1px;
+  background-color: red;
+  border-radius: 50%;
+  transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
 }
 
 .button-3 .checkbox:active+.knobs:before {
-    width: 46px;
-    border-radius: 100px;
+  width: 46px;
+  border-radius: 100px;
 }
 
 .button-3 .checkbox:checked:active+.knobs:before {
-    margin-left: -26px;
+  margin-left: -26px;
 }
 
 .button-3 .checkbox:checked+.knobs:before {
-    content: "ON";
-    left: 31px;
-    background-color: GREEN;
+  content: "ON";
+  left: 31px;
+  background-color: GREEN;
 }
 
 .button-3 .checkbox:checked~.layer {
-    background-color: rgba(6, 173, 6, 0.602);
+  background-color: rgba(6, 173, 6, 0.602);
+}
+
+/* toggle button stop */
+/* in css class many html element control start  */
+
+.all-header-text {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: var(--font-family-style);
+}
+
+.all-para-text {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: var(--font-family-style);
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+.gpio-div-flex {
+  padding: 0px;
+  display: flex;
+  gap: 10px;
+}
+
+.gpio-div,
+.analoginput-div,
+.digitalinput-div,
+.DigitalOutput-div,
+.Relay {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .led-light {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    /* background-color: yellow; */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  /* background-color: yellow; */
 
 }
 
-/* ======toggle buttton end====== */
-
-
-/* Custom CSS for the number control */
-.number-control0,
-.number-control1 {
-    display: flex;
-    align-items: center;
-    gap: 0px;
-    /* margin-bottom: 10px; */
-
+/* in css class many html element control stop  */
+.top-div {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
-.decrement0,
-.decrement1,
-.increment0,
-.increment1 {
-    font-size: 40px;
-    padding: 20px 10px;
-    font-weight: bold;
-    width: 2rem;
-    height: 10px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    border: 0px;
-    background-color: green;
-    border-radius: 2px;
-    padding-top: -20px;
-    /* line-height: 30px; */
+.top-div .top-div-left {
+  text-align: left;
 }
 
-.number-control0 input,
-.number-control1 input {
-    width: 50px;
-    height: 40px;
-    border: 0px;
-    font-size: 20px;
-    font-weight: bold;
-    pointer-events: none;
-    border: 2px solid #bbc5c5;
+.top-div .top-div-left .analogoutput-div .voltage-div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.number-control button {
-    cursor: pointer;
+.top-div .top-div-left .analogoutput-div .voltage-div .number-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.disabled {
-    opacity: 0.3;
-    pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.469);
+.top-div .top-div-left .analogoutput-div .voltage-div .number-control .decrement,
+.increment {
+  width: 40px;
+  height: 40px;
+  border: 0px;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  background-color: var(--green);
+  color: var(--text-color-white);
 }
 
+.top-div .top-div-left .analogoutput-div .voltage-div .number-control input {
+  border: 0px;
+  background-color: var(--numberControl-input-bg-color);
+  width: 40px;
+  height: 40px;
+}
+
+.top-div .top-div-left .analogoutput-div .voltage-div .voltage-btn {
+  border: 0px;
+  padding: 8px 20px;
+  background-color: var(--stepper-Setvoltage-btn-color);
+  color: var(--text-color-white);
+  font-weight: bold;
+  font-family: var(--font-family-style);
+  margin-top: -10px;
+}
+
+.middle-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle-div img {
+  width: 30%;
+}
+
+.bottom-div {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* wire css  */
 /* gpio wire start */
 .gpio0-wire {
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    width: 457px;
-    height: 315px;
-    position: absolute;
-    top: 60px;
-    left: 170px;
-    z-index: 1;
+  border-top: 2px solid var(--gpio-wire-color);
+  border-right: 2px solid var(--gpio-wire-color);
+  width: calc(13.4% - 170px - 15% + 50%);
+  height: 258px;
+  position: absolute;
+  bottom: -17px;
+  left: 170px;
 }
 
 .gpio1-wire {
-    width: 462px;
-    height: 255px;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    position: absolute;
-    top: 120px;
-    left: 173px;
-    z-index: 2;
+  width: calc(14% - 170px - 15% + 50%);
+  height: 220px;
+  border-top: 2px solid var(--gpio-wire-color);
+  border-right: 2px solid var(--gpio-wire-color);
+  position: absolute;
+  bottom: -17px;
+  left: 170px;
 }
 
 .gpio2-wire {
-    width: 469px;
-    height: 195px;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    position: absolute;
-    top: 180px;
-    left: 173px;
+  width: calc(14.5% - 170px - 15% + 50%);
+  height: 185px;
+  border-top: 2px solid var(--gpio-wire-color);
+  border-right: 2px solid var(--gpio-wire-color);
+  position: absolute;
+  bottom: -17px;
+  left: 170px;
 }
 
 .gpio3-wire {
-    width: 477px;
-    height: 135px;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    position: absolute;
-    top: 240px;
-    left: 173px;
+  width: calc(15.2% - 170px - 15% + 50%);
+  height: 155px;
+  border-top: 2px solid var(--gpio-wire-color);
+  border-right: 2px solid var(--gpio-wire-color);
+  position: absolute;
+  bottom: -17px;
+  left: 170px;
 }
 
 .analogoutput0-wire {
-    width: 332px;
-    height: 442px;
-    border-top: 2px solid green;
-    border-right: 2px solid green;
-    position: absolute;
-    top: 60px;
-    left: 350px;
+  width: calc(17.5% - 370px - 15% + 50%);
+  height: 392px;
+  border-top: 2px solid var(--analog-output-wire-color);
+  border-right: 2px solid var(--analog-output-wire-color);
+  position: absolute;
+  bottom: -17px;
+  left: 370px;
 }
 
 .analogoutput1-wire {
-    width: 338px;
-    height: 403px;
-    border-top: 2px solid green;
-    border-right: 2px solid green;
-    position: absolute;
-    top: 100px;
-    left: 350px;
+  width: calc(18.1% - 370px - 15% + 50%);
+  height: 353px;
+  border-top: 2px solid var(--analog-output-wire-color);
+  border-right: 2px solid var(--analog-output-wire-color);
+  position: absolute;
+  bottom: -17px;
+  left: 370px;
 }
 
 .analoginput0-wire {
-    width: 378px;
-    height: 452px;
-    border-top: 2px solid green;
-    border-left: 2px solid green;
-    position: absolute;
-    top: 50px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 9%);
+  height: 395px;
+  border-top: 2px solid var(--analog-input-wire-color);
+  border-left: 2px solid var(--analog-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .analoginput1-wire {
-    width: 370px;
-    height: 410px;
-    border-top: 2px solid green;
-    border-left: 2px solid green;
-    position: absolute;
-    top: 90px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 9.7%);
+  height: 355px;
+  border-top: 2px solid var(--analog-input-wire-color);
+  border-left: 2px solid var(--analog-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di0-wire {
-    width: 353px;
-    height: 330px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 55px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 7.7%);
+  height: 280px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di1-wire {
-    width: 346px;
-    height: 290px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 95px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 7.2%);
+  height: 240px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di2-wire {
-    width: 340px;
-    height: 252px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 135px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 6.6%);
+  height: 205px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di3-wire {
-    width: 332px;
-    height: 210px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 175px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 6.1%);
+  height: 170px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di4-wire {
-    width: 320px;
-    height: 171px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 215px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 5%);
+  height: 135px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di5-wire {
-    width: 312px;
-    height: 131px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 255px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 4.5%);
+  height: 101px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di6-wire {
-    width: 305px;
-    height: 90px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 296px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 4%);
+  height: 66px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .di7-wire {
-    width: 299px;
-    height: 52px;
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    position: absolute;
-    top: 334px;
-    right: 200px;
+  width: calc(50% - 200px - 15% + 3.5%);
+  height: 30px;
+  border-top: 2px solid var(--digital-input-wire-color);
+  border-left: 2px solid var(--digital-input-wire-color);
+  position: absolute;
+  bottom: -17px;
+  right: 200px;
 }
 
 .digitaloutput0-wire {
-    border-bottom: 2px solid red;
-    border-right: 2px solid red;
-    width: 520px;
-    height: 120px;
-    position: absolute;
-    top: -52px;
-    left: 149px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-output-wire-color);
+  border-right: 2px solid var(--digital-output-wire-color);
+  width: calc(16.6% - 150px - 15% + 50%);
+  height: 95px;
+  position: absolute;
+  top: -30px;
+  left: 150px;
 }
 
 .digitaloutput1-wire {
-    border-bottom: 2px solid red;
-    border-right: 2px solid red;
-    width: 526px;
-    height: 172px;
-    position: absolute;
-    top: -52px;
-    left: 150px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-output-wire-color);
+  border-right: 2px solid var(--digital-output-wire-color);
+  width: calc(17.1% - 150px - 15% + 50%);
+  height: 132px;
+  position: absolute;
+  top: -30px;
+  left: 150px;
 }
 
 .digitaloutput2-wire {
-    border-bottom: 2px solid red;
-    border-right: 2px solid red;
-    width: 534px;
-    height: 232px;
-    position: absolute;
-    top: -52px;
-    left: 150px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-output-wire-color);
+  border-right: 2px solid var(--digital-output-wire-color);
+  width: calc(17.7% - 150px - 15% + 50%);
+  height: 165px;
+  position: absolute;
+  top: -30px;
+  left: 150px;
 }
 
 .digitaloutput3-wire {
-    border-bottom: 2px solid red;
-    border-right: 2px solid red;
-    width: 541px;
-    height: 292px;
-    position: absolute;
-    top: -52px;
-    left: 150px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-output-wire-color);
+  border-right: 2px solid var(--digital-output-wire-color);
+  width: calc(18.3% - 150px - 15% + 50%);
+  height: 202px;
+  position: absolute;
+  top: -30px;
+  left: 150px;
 }
 
 .relay0-wire {
-    border-bottom: 2px solid red;
-    border-left: 2px solid red;
-    width: 415px;
-    height: 115px;
-    position: absolute;
-    top: -52px;
-    right: 150px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-input-relay-color);
+  border-left: 2px solid var(--digital-input-relay-color);
+  width: calc(50% - 170px - 15% + 8.6%);
+  height: 95px;
+  position: absolute;
+  top: -30px;
+  right: 170px;
 }
 
 .relay1-wire {
-    border-bottom: 2px solid red;
-    border-left: 2px solid red;
-    width: 394px;
-    height: 175px;
-    position: absolute;
-    top: -52px;
-    right: 150px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-input-relay-color);
+  border-left: 2px solid var(--digital-input-relay-color);
+  width: calc(50% - 170px - 15% + 6.9%);
+  height: 130px;
+  position: absolute;
+  top: -30px;
+  right: 170px;
 }
 
 .relay2-wire {
-    border-bottom: 2px solid red;
-    border-left: 2px solid red;
-    width: 367px;
-    height: 237px;
-    position: absolute;
-    top: -52px;
-    right: 150px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-input-relay-color);
+  border-left: 2px solid var(--digital-input-relay-color);
+  width: calc(50% - 170px - 15% + 4.9%);
+  height: 165px;
+  position: absolute;
+  top: -30px;
+  right: 170px;
 }
 
 .relay3-wire {
-    border-bottom: 2px solid red;
-    border-left: 2px solid red;
-    width: 345px;
-    height: 295px;
-    position: absolute;
-    top: -52px;
-    right: 150px;
-    z-index: 1;
+  border-bottom: 2px solid var(--digital-input-relay-color);
+  border-left: 2px solid var(--digital-input-relay-color);
+  width: calc(50% - 170px - 15% + 3.3%);
+  height: 200px;
+  position: absolute;
+  top: -30px;
+  right: 170px;
 }
-
 
 /* mobile responsive */
-@media screen and (min-width:320px) and (max-width: 767px) {
-    .main-container {
-        padding: 10px;
-    }
-
-    .top-div {
-        padding: 0px;
-    }
-
-    .top-div .analogoutput-div :nth-child(1) {
-        font-size: 15px;
-
-    }
-
-    .top-div .analogoutput-div :nth-child(2) p {
-        font-size: 10px;
-        font-weight: bold;
-    }
-
-    .top-div .analogoutput-div :nth-child(3) p {
-        font-size: 10px;
-        font-weight: bold;
-    }
-
-    .voltage-div {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        margin-bottom: 5px;
-    }
-
-    .voltage-div .voltage-btn {
-        width: 50px;
-        height: 30px;
-        background-color: green;
-        text-align: center;
-        color: #fff;
-        border: 0px;
-        padding: 5px;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        font-size: 8px;
-    }
-
-    .decrement0,
-    .decrement1,
-    .increment0,
-    .increment1 {
-        font-size: 10px;
-        padding: 20px 10px;
-        font-weight: bold;
-        width: 20px;
-        height: 5px;
-    }
-
-    .number-control0 input,
-    .number-control1 input {
-        width: 20px;
-        height: 40px;
-        border: 0px;
-        font-size: 20px;
-        font-weight: bold;
-        pointer-events: none;
-        border: 2px solid #bbc5c5;
-    }
-
-    .top-div .gpio-div h5 {
-        font-size: 15px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .top-div .gpio-div :nth-child(2) {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        margin-bottom: 0px;
-    }
-
-    .top-div .gpio-div :nth-child(2) p {
-        margin-top: 15px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(3) {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(3) p {
-        margin-top: 15px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(4) {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(4) p {
-        margin-top: 15px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(5) {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(5) p {
-        margin-top: 15px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-
-    }
-
-    .top-div .analoginput-div :nth-child(1) {
-        font-size: 15px;
-        font-weight: bold;
-        margin-bottom: 0px;
-    }
-
-    .top-div .analoginput-div :nth-child(2) p {
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .analoginput-div :nth-child(3) p {
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .digitalinput-div {
-        gap: 2px;
-    }
-
-    .top-div .digitalinput-div :nth-child(1) {
-        font-size: 15px;
-        font-weight: bold;
-        margin-bottom: 0px;
-    }
-
-    .top-div .digitalinput-div :nth-child(2) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(2) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(3) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(3) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(4) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(4) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(5) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(5) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(6) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(6) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(7) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(7) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(8) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(8) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(9) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(9) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-
-    }
-
-    .middle {
-        padding-right: 0px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .middle img {
-        width: 30%;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div h5 {
-        margin-bottom: 0px;
-        font-size: 15px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(2) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(2) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(3) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(3) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(4) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(4) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(5) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(5) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div .Relay h5 {
-        font-size: 15px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-        text-transform: uppercase;
-        margin-bottom: 0px;
-    }
-
-    .bottom-div .Relay :nth-child(2) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-    }
-
-    .bottom-div .Relay :nth-child(2) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div .Relay :nth-child(3) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .bottom-div .Relay :nth-child(3) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div .Relay :nth-child(4) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 2px;
-
-    }
-
-    .bottom-div .Relay :nth-child(4) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-
-    }
-
-    .bottom-div .Relay :nth-child(5) {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        margin-bottom: 0px;
-
-
-    }
-
-    .bottom-div .Relay :nth-child(5) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .gpio0-wire {
-        display: none;
-    }
-
-    .gpio1-wire {
-        display: none;
-    }
-
-    .gpio2-wire {
-        display: none;
-    }
-
-    .gpio3-wire {
-        display: none;
-    }
-
-    .analogoutput0-wire {
-        display: none;
-    }
-
-    .analogoutput1-wire {
-        display: none;
-    }
-
-    .analoginput0-wire {
-        display: none;
-    }
-
-    .analoginput1-wire {
-        display: none;
-    }
-
-    .di0-wire {
-        display: none;
-    }
-
-    .di1-wire {
-        display: none;
-    }
-
-    .di2-wire {
-        display: none;
-    }
-
-    .di3-wire {
-        display: none;
-    }
-
-    .di4-wire {
-        display: none;
-    }
-
-    .di5-wire {
-        display: none;
-    }
-
-    .di6-wire {
-        display: none;
-    }
-
-    .di7-wire {
-        display: none;
-    }
-
-    .digitaloutput0-wire {
-        display: none;
-    }
-
-    .digitaloutput1-wire {
-        display: none;
-    }
-
-    .digitaloutput2-wire {
-        display: none;
-    }
-
-    .digitaloutput3-wire {
-        display: none;
-    }
-
-    .relay0-wire {
-        display: none;
-    }
-
-    .relay1-wire {
-        display: none;
-    }
-
-    .relay2-wire {
-        display: none;
-    }
-
-    .relay3-wire {
-        display: none;
-    }
-}
-
-
-/* tablets responsive  */
-@media screen and (min-width:768px) and (max-width:991px) {
-
-    .main-container {
-        padding: 20px;
-    }
-
-    .top-div {
-        padding: 0px;
-    }
-
-    .top-div .analogoutput-div :nth-child(1) {
-        font-size: 20px;
-
-    }
-
-    .top-div .analogoutput-div :nth-child(2) p {
-        font-size: 13px;
-        font-weight: bold;
-    }
-
-    .top-div .analogoutput-div :nth-child(3) p {
-        font-size: 13px;
-        font-weight: bold;
-    }
-
-    .voltage-div {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        margin-bottom: 5px;
-    }
-
-    .voltage-div .voltage-btn {
-        width: 90px;
-        height: 40px;
-        background-color: green;
-        color: #fff;
-        border: 0px;
-        border-radius: 5px;
-
-        font-size: 10px;
-        font-weight: bold;
-    }
-
-    .decrement0,
-    .decrement1,
-    .increment0,
-    .increment1 {
-        font-size: 15px;
-        padding: 20px 10px;
-        font-weight: bold;
-        width: 30px;
-        height: 10px;
-    }
-
-    .number-control0 input,
-    .number-control1 input {
-        width: 20px;
-        height: 40px;
-        border: 0px;
-        font-size: 20px;
-        font-weight: bold;
-        pointer-events: none;
-        border: 2px solid #bbc5c5;
-    }
-
-    .top-div .gpio-div h5 {
-        font-size: 20px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .top-div .gpio-div :nth-child(2) {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-        margin-bottom: 0px;
-    }
-
-    .top-div .gpio-div :nth-child(2) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(3) {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(3) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(4) {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(4) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(5) {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .gpio-div :nth-child(5) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-
-    }
-
-    .top-div .analoginput-div :nth-child(1) {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 0px;
-    }
-
-    .top-div .analoginput-div :nth-child(2) p {
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .analoginput-div :nth-child(3) p {
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .top-div .digitalinput-div {
-        gap: 3px;
-    }
-
-    .top-div .digitalinput-div :nth-child(1) {
-        font-size: 10px;
-        font-weight: bold;
-        margin-bottom: 0px;
-    }
-
-    .top-div .digitalinput-div :nth-child(2) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(2) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(3) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(3) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(4) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(4) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(5) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(5) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(6) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(6) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(7) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(7) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(8) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(8) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .top-div .digitalinput-div :nth-child(9) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .top-div .digitalinput-div :nth-child(9) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-
-    }
-
-    .middle {
-        padding-right: 100px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .middle img {
-        width: 40%;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div h5 {
-        margin-bottom: 0px;
-        font-size: 20px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(2) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(2) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(3) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(3) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(4) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(4) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(5) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-    }
-
-    .bottom-div :nth-child(1) .DigitalOutput-div :nth-child(5) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div .Relay h5 {
-        font-size: 20px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-        text-transform: uppercase;
-        margin-bottom: 0px;
-    }
-
-    .bottom-div .Relay :nth-child(2) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-    }
-
-    .bottom-div .Relay :nth-child(2) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div .Relay :nth-child(3) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .bottom-div .Relay :nth-child(3) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .bottom-div .Relay :nth-child(4) {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        gap: 3px;
-
-    }
-
-    .bottom-div .Relay :nth-child(4) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-
-    }
-
-    .bottom-div .Relay :nth-child(5) {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-        margin-bottom: 0px;
-
-
-    }
-
-    .bottom-div .Relay :nth-child(5) p {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 0px;
-
-    }
-
-    .gpio0-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 135px;
-        height: 270px;
-        top: 40px;
-        left: 150px;
-        /* display: none; */
-    }
-
-    .gpio1-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 140px;
-        height: 235px;
-        top: 75px;
-        left: 150px;
-        /* display: none; */
-
-    }
-
-    .gpio2-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 145px;
-        height: 200px;
-        top: 110px;
-        left: 150px;
-        /* display: none; */
-
-    }
-
-    .gpio3-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 150px;
-        height: 160px;
-        top: 150px;
-        left: 150px;
-        /* display: none; */
-
-    }
-
-    .analogoutput0-wire {
-        border-top: 1px solid green;
-        border-right: 1px solid green;
-        width: 68px;
-        height: 375px;
-        top: 55px;
-        left: 250px;
-        /* display: none; */
-
-    }
-
-    .analogoutput1-wire {
-        width: 73px;
-        height: 333px;
-        border-top: 1px solid green;
-        border-right: 1px solid green;
-        position: absolute;
-        top: 100px;
-        left: 250px;
-        /* display: none; */
-
-    }
-
-    .analoginput0-wire {
-        border-top: 1px solid green;
-        border-left: 1px solid green;
-        width: 185px;
-        height: 390px;
-        top: 40px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .analoginput1-wire {
-        border-top: 1px solid green;
-        border-left: 1px solid green;
-        width: 180px;
-        height: 355px;
-        top: 75px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .di0-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 171px;
-        height: 302px;
-        top: 35px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .di1-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 166px;
-        height: 262px;
-        top: 75px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .di2-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 161px;
-        height: 228px;
-        top: 110px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .di3-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 157px;
-        height: 187px;
-        top: 150px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .di4-wire {
-        width: 150px;
-        height: 146px;
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        position: absolute;
-        top: 190px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .di5-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 145px;
-        height: 112px;
-        top: 225px;
-        right: 170px;
-        /* display: none; */
-
-    }
-
-    .di6-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 146px;
-        height: 71px;
-        top: 266px;
-        right: 165px;
-        /* display: none; */
-
-    }
-
-    .di7-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 140px;
-        height: 32px;
-        top: 305px;
-        right: 166px;
-        /* display: none; */
-
-    }
-
-    .digitaloutput0-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 160px;
-        height: 80px;
-        top: -30px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .digitaloutput1-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 165px;
-        height: 110px;
-        top: -30px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .digitaloutput2-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 170px;
-        height: 140px;
-        top: -30px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .digitaloutput3-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 175px;
-        height: 180px;
-        top: -30px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay0-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 197px;
-        height: 76px;
-        position: absolute;
-        top: -30px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay1-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 184px;
-        height: 110px;
-        top: -30px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay2-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 168px;
-        height: 145px;
-        top: -30px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay3-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 155px;
-        height: 185px;
-        top: -30px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-}
-
-@media screen and (min-width:992px) and (max-width:1024px) {
-    .middle img{
-        width: 30%;
-    }
-    .gpio0-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 303px;
-        height: 340px;
-        top: 60px;
-        left: 150px;
-        /* display: none; */
-    }
-
-    .gpio1-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 308px;
-        height: 280px;
-        top: 120px;
-        left: 150px;
-        /* display: none; */
-
-    }
-
-    .gpio2-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 314px;
-        height: 220px;
-        top: 180px;
-        left: 150px;
-        /* display: none; */
-    }
-
-    .gpio3-wire {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        width: 319px;
-        height: 160px;
-        top: 240px;
-        left: 150px;
-        /* display: none; */
-
-    }
-
-    .analogoutput0-wire {
-        border-top: 1px solid green;
-        border-right: 1px solid green;
-        width: 142px;
-        height: 470px;
-        top: 55px;
-        left: 350px;
-        /* display: none; */
-
-    }
-
-    .analogoutput1-wire {
-        border-top: 1px solid green;
-        border-right: 1px solid green;
-        width: 147px;
-        height: 430px;
-        top: 100px;
-        left: 350px;
-        /* display: none; */
-
-    }
-
-    .analoginput0-wire {
-        border-top: 1px solid green;
-        border-left: 1px solid green;
-        width: 218px;
-        height: 475px;
-        top: 50px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .analoginput1-wire {
-        border-top: 1px solid green;
-        border-left: 1px solid green;
-        width: 211px;
-        height: 435px;
-        top: 95px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di0-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 200px;
-        height: 350px;
-        top: 55px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di1-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 195px;
-        height: 310px;
-        top: 95px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di2-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 190px;
-        height: 265px;
-        top: 140px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di3-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 185px;
-        height: 225px;
-        top: 180px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di4-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 175px;
-        height: 185px;
-        top: 220px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di5-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 170px;
-        height: 145px;
-        top: 260px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di6-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 165px;
-        height: 110px;
-        top: 296px;
-        right: 200px;
-        /* display: none; */
-
-    }
-
-    .di7-wire {
-        border-top: 1px solid red;
-        border-left: 1px solid red;
-        width: 150px;
-        height: 65px;
-        top: 340px;
-        right: 210px;
-        /* display: none; */
-
-    }
-
-    .digitaloutput0-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 333px;
-        height: 110px;
-        top: -45px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .digitaloutput1-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 338px;
-        height: 170px;
-        top: -45px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .digitaloutput2-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 343px;
-        height: 230px;
-        top: -45px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .digitaloutput3-wire {
-        border-bottom: 1px solid red;
-        border-right: 1px solid red;
-        width: 348px;
-        height: 290px;
-        top: -45px;
-        left: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay0-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 258px;
-        height: 110px;
-        top: -45px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay1-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 242px;
-        height: 167px;
-        top: -45px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay2-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 223px;
-        height: 227px;
-        top: -45px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
-
-    .relay3-wire {
-        border-bottom: 1px solid red;
-        border-left: 1px solid red;
-        width: 208px;
-        height: 290px;
-        top: -45px;
-        right: 150px;
-        z-index: 1;
-        /* display: none; */
-
-    }
+@media screen and (min-width:100px) and (max-width:767px) {
+  .main-container {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    padding: 10px;
+  }
+
+  .all-header-text {
+    font-size: 10px;
+    font-weight: bolder;
+  }
+
+  .all-para-text {
+    font-size: 8px;
+  }
+
+  .gpio-div-flex {
+    gap: 5px;
+  }
+
+  .gpio-div,
+  .analoginput-div,
+  .digitalinput-div,
+  .DigitalOutput-div,
+  .Relay {
+    gap: 10px;
+  }
+
+  .led-light {
+    width: 20px;
+    height: 20px;
+  }
+
+  .top-div .top-div-left .analogoutput-div .voltage-div {
+    gap: 5px;
+  }
+
+  .top-div .top-div-left .analogoutput-div .voltage-div .number-control {
+    margin-bottom: 10px;
+  }
+
+  .top-div .top-div-left .analogoutput-div .voltage-div .number-control .decrement,
+  .increment {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+  }
+
+  .top-div .top-div-left .analogoutput-div .voltage-div .number-control input {
+    width: 20px;
+    height: 20px;
+  }
+
+  .top-div .top-div-left .analogoutput-div .voltage-div .voltage-btn {
+    padding: 8px 5px;
+    font-size: 6px;
+  }
+
+  .gpio0-wire {
+    display: none;
+  }
+
+  .gpio1-wire {
+    display: none;
+  }
+
+  .gpio2-wire {
+    display: none;
+  }
+
+  .gpio3-wire {
+    display: none;
+  }
+
+  .analogoutput0-wire {
+    display: none;
+  }
+
+  .analogoutput1-wire {
+    display: none;
+  }
+
+  .analoginput0-wire {
+    display: none;
+  }
+
+  .analoginput1-wire {
+    display: none;
+  }
+
+  .di0-wire {
+    display: none;
+  }
+
+  .di1-wire {
+    display: none;
+  }
+
+  .di2-wire {
+    display: none;
+  }
+
+  .di3-wire {
+    display: none;
+  }
+
+  .di4-wire {
+    display: none;
+  }
+
+  .di5-wire {
+    display: none;
+  }
+
+  .di6-wire {
+    display: none;
+  }
+
+  .di7-wire {
+    display: none;
+  }
+
+  .digitaloutput0-wire {
+    display: none;
+  }
+
+  .digitaloutput1-wire {
+    display: none;
+  }
+
+  .digitaloutput2-wire {
+    display: none;
+  }
+
+  .digitaloutput3-wire {
+    display: none;
+  }
+
+  .relay0-wire {
+    display: none;
+  }
+
+  .relay1-wire {
+    display: none;
+  }
+
+  .relay2-wire {
+    display: none;
+  }
+
+  .relay3-wire {
+    display: none;
+  }
 }

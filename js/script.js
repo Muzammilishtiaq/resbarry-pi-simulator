@@ -1,32 +1,35 @@
 //   API URL
 const apiUrl = 'http://103.217.176.16:9094';
+const onledlight= `${apiUrl}/static/image/led-light-on.png`;
+const offledlight= `${apiUrl}/static/image/led-light-off.png`;
 // <====================== get relay function start ==============================>
 function getrelay() {
-  $.ajax({
-    url: `${apiUrl}/get_relays`,
-    method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
-      // Handle the successful response
-      if (data && data.data) {
-        updatebutton(data.data);
-        console.log('get Relay Array:', data.data);
-      } else {
-        console.error('Invalid API response format')
-      }
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('Error:', status, error);
+     fetch(`${apiUrl}/get_relays`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
+    return response.json();
+  })
+  .then(data => {
+    if (data && data.data) {
+      relayupdatebutton(data.data);
+      console.log('get Relay Array:', data.data);
+    } else {
+      console.error('Invalid API response format');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
   });
+
 }
 // <====================== get relay function end ==============================>
 
 //
 // <====================== update relay button function start ==============================>
 
-function updatebutton(dataindex) {
+function relayupdatebutton(dataindex) {
 
   const buttons = document.querySelectorAll('#relaybutton');
   const leds = document.querySelectorAll('#relay-led-light');
@@ -43,20 +46,22 @@ function updatebutton(dataindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked = dataindex[index]) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src = onledlight;
         console.log(`Relay ${index} is ON`);
-      } else {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+      }
+       else {
+        led.src = offledlight;
         console.log(`Relay ${index} is OFF`);
       }
     });
+    // window load condition
     if (dataindex[index] === true) {
       const checkbox = button.querySelector('.checkbox');
       // dataindex[index] = checkbox.checked;
       checkbox.checked = dataindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src =onledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
@@ -66,7 +71,7 @@ function updatebutton(dataindex) {
       checkbox.checked = dataindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        led.src = offledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
@@ -76,44 +81,58 @@ function updatebutton(dataindex) {
 
 // <====================== set relay api function start ==============================>
 function setrelay(index) {
-  $.ajax({
-    url: `${apiUrl}/set_relay?pinNo=${index}`,
+  fetch(`${apiUrl}/set_relay?pinNo=${index}`, {
     method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
-      console.log('pin no is success set relay', data)
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('Error:', status, error);
+    headers: {
+      'Content-Type': 'application/json'
     }
-  });
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('pin no is success set relay', data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  
 }
 
 // <====================== document ready get relay function start ==============================>
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function() {
   getrelay();
 });
 
 // <====================== get relay function end ==============================>
 // <================= api or button or set or get digital output function start ===================>
 function getdigitaloutput() {
-  $.ajax({
-    url: `${apiUrl}/getDigitalOutPuts`,
+  fetch(`${apiUrl}/getDigitalOutPuts`, {
     method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
-      console.log('get digital output is success', data.data)
-      digitaloutputbtn(data.data);
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('get digital output is Error:', status, error);
+    headers: {
+      'Content-Type': 'application/json'
     }
-  });
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('get digital output is success', data.data);
+      digitaloutputbtn(data.data);
+    })
+    .catch(error => {
+      console.error('get digital output is Error:', error);
+    });
+  
 }
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function() {
   getdigitaloutput();
 });
 // button function digitaloutput
@@ -134,10 +153,10 @@ function digitaloutputbtn(digitaloutputindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src = onledlight;
         console.log(`digital output ${index} is ON`);
       } else {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        led.src = offledlight;
         console.log(`digital output ${index} is OFF`);
       }
     });
@@ -147,7 +166,7 @@ function digitaloutputbtn(digitaloutputindex) {
       checkbox.checked = digitaloutputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src = onledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
@@ -157,47 +176,62 @@ function digitaloutputbtn(digitaloutputindex) {
       checkbox.checked = digitaloutputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        led.src =offledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
   });
 }
 
-// set api
+// setdigitaloutput api
 function setdigitaloutput(index) {
-  $.ajax({
-    url: `${apiUrl}/setDigitalOutPut?pinNo=${index}`,
+  fetch(`${apiUrl}/setDigitalOutPut?pinNo=${index}`, {
     method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
-      console.log('set digital output is success', data)
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('set digital output is Error:', status, error);
+    headers: {
+      'Content-Type': 'application/json'
     }
-  });
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('set digital output is success', data);
+    })
+    .catch(error => {
+      console.error('set digital output is Error:', error);
+    });
+  
 }
 // <================= api get digital output function end =====================>
 // <================= api get digital input function start =====================>
 function getdigitalinput() {
-  $.ajax({
-    url: `${apiUrl}/getDigitalInPuts`,
+  fetch(`${apiUrl}/getDigitalInPuts`, {
     method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
       console.log('get digital input is success', data.data);
       digitalinputbtn(data.data);
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('get digital input is Error:', status, error);
-    }
-  });
+    })
+    .catch(error => {
+      console.error('get digital input is Error:', error);
+    });
+  
 }
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function() {
+
   getdigitalinput();
 });
 function digitalinputbtn(digitalinputindex) {
@@ -216,10 +250,11 @@ function digitalinputbtn(digitalinputindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src = onledlight;
         console.log(`digital input ${index} is ON`);
-      } else {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+      }
+       else {
+        led.src = offledlight;
         console.log(`digital input ${index} is OFF`);
       }
     });
@@ -229,7 +264,7 @@ function digitalinputbtn(digitalinputindex) {
       checkbox.checked = digitalinputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src = onledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
@@ -239,7 +274,7 @@ function digitalinputbtn(digitalinputindex) {
       checkbox.checked = digitalinputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        led.src = offledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
@@ -249,22 +284,29 @@ function digitalinputbtn(digitalinputindex) {
 
 // <================ = api get_gpios function start =====================>
 function getgpios() {
-  $.ajax({
-    url: `${apiUrl}/get_gpios`,
+  fetch(`${apiUrl}/get_gpios`, {
     method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
       gpiosbtn(data.data);
       console.log('get get_gpios is success', data.data);
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('get get_gpios is Error:', status, error);
-    }
-  });
+    })
+    .catch(error => {
+      console.error('get get_gpios is Error:', error);
+    });
+  
 }
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function() {
   getgpios();
 });
 
@@ -284,10 +326,11 @@ function gpiosbtn(gpiosindex) {
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src = onledlight;
         console.log(`gpios ${index} is ON`);
-      } else {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+      } 
+      else {
+        led.src =offledlight;
         console.log(`gpios ${index} is OFF`);
       }
     });
@@ -297,7 +340,7 @@ function gpiosbtn(gpiosindex) {
       checkbox.checked = gpiosindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-on.png";
+        led.src = onledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
@@ -307,7 +350,7 @@ function gpiosbtn(gpiosindex) {
       checkbox.checked = gpiosindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = "http://103.217.176.16:9094/static/image/led-light-off.png";
+        led.src = offledlight;
         // console.log(`Relay ${index} is ON`);
       // }
     }
@@ -317,138 +360,165 @@ function gpiosbtn(gpiosindex) {
 
 // <================ = api get_analogOuts function start =====================>
 function getanalogOuts() {
-  $.ajax({
-    url: `${apiUrl}/get_analogOuts`,
+  fetch(`${apiUrl}/get_analogOuts`, {
     method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
       console.log('get analogOuts is success', data.data);
-      $('#analogout0voltage').val(data.data[0]); // Show value with one decimal place
-      $('#analogout1voltage').val(data.data[1]); // Show value with one decimal place
+      document.getElementById('analogout0voltage').value = data.data[0]; // Show value with one decimal place
+      document.getElementById('analogout1voltage').value = data.data[1]; // Show value with one decimal place
       toggleButtons0(parseFloat(data.data[0]));
       toggleButtons1(parseFloat(data.data[1]));
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('get get_analogOuts is Error:', status, error);
-
-    }
-  });
+    })
+    .catch(error => {
+      console.error('get get_analogOuts is Error:', error);
+    });
+  
 }
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function() {
   getanalogOuts();
 });
 // ==== 0 voltage stepper start 
-$('#analogoutputnumbercontrol0 #analogoutputincrement0').click(function () {
-  var inputField = $(this).siblings('input');
-  var value = parseInt(inputField.val());
-  inputField.val(value + 1);
+document.querySelector('#analogoutputnumbercontrol0 #analogoutputincrement0').addEventListener('click', function() {
+  var inputField = this.parentNode.querySelector('input');
+  var value = parseInt(inputField.value);
+  inputField.value = value + 1;
   toggleButtons0(value + 1);
 });
 
-$('#analogoutputnumbercontrol0 #analogoutputdecrement0').click(function () {
-  var inputField = $(this).siblings('input');
-  var value = parseInt(inputField.val());
-  inputField.val(value - 1);
+
+document.querySelector('#analogoutputnumbercontrol0 #analogoutputdecrement0').addEventListener('click', function() {
+  var inputField = this.parentNode.querySelector('input');
+  var value = parseInt(inputField.value);
+  inputField.value = value - 1;
   toggleButtons0(value - 1);
 });
+
 
 function toggleButtons0(value) {
   // Disable decrement button if value is 0
   if (value <= 0) {
-    $('.number-control0 .decrement0').addClass('disabled');
+    document.querySelector('.number-control0 .decrement0').classList.add('disabled');
   } else {
-    $('.number-control0 .decrement0').removeClass('disabled');
+    document.querySelector('.number-control0 .decrement0').classList.remove('disabled');
   }
 
-  // Disable increment button if value is 5
+  // Disable increment button if value is 800
   if (value >= 800) {
-    $('.number-control0 .increment0').addClass('disabled');
+    document.querySelector('.number-control0 .increment0').classList.add('disabled');
   } else {
-    $('.number-control0 .increment0').removeClass('disabled');
+    document.querySelector('.number-control0 .increment0').classList.remove('disabled');
   }
 }
+
 // ==== 0 voltage stepper end 
 
 // ==== 1 voltage stepper start 
-$('#analogoutputnumbercontrol1 #analogoutputincrement1').click(function () {
-  var inputField = $(this).siblings('input');
-  var value = parseInt(inputField.val());
-  inputField.val(value + 1);
-  toggleButtons1(value + 1)
+document.querySelector('#analogoutputnumbercontrol1 #analogoutputincrement1').addEventListener('click', function() {
+  var inputField = this.parentNode.querySelector('input');
+  var value = parseInt(inputField.value);
+  inputField.value = value + 1;
+  toggleButtons1(value + 1);
 });
 
-$('#analogoutputnumbercontrol1 #analogoutputdecrement1').click(function () {
-  var inputField = $(this).siblings('input');
-  var value = parseInt(inputField.val());
-  inputField.val(value - 1);
+
+document.getElementById('analogoutputdecrement1').addEventListener('click', function () {
+  var inputField = this.parentNode.querySelector('input');
+  var value = parseInt(inputField.value);
+  inputField.value = value - 1;
   toggleButtons1(value - 1);
 });
 
+
 function toggleButtons1(value) {
   // Disable decrement button if value is 0
+  var decrementButton = document.querySelector('.number-control1 .decrement1');
   if (value <= 0) {
-    $('.number-control1 .decrement1').addClass('disabled');
+    decrementButton.classList.add('disabled');
   } else {
-    $('.number-control1 .decrement1').removeClass('disabled');
+    decrementButton.classList.remove('disabled');
   }
 
   // Disable increment button if value is 5
+  var incrementButton = document.querySelector('.number-control1 .increment1');
   if (value >= 800) {
-    $('.number-control1 .increment1').addClass('disabled');
+    incrementButton.classList.add('disabled');
   } else {
-    $('.number-control1 .increment1').removeClass('disabled');
+    incrementButton.classList.remove('disabled');
   }
 }
+
 // ==== 1 voltage stepper end 
 
 
 function setanalogOuts(pinon, value) {
-  $.ajax({
-    url: `${apiUrl}/set_analogOut?pinNo=${pinon}&volts=${value}`,
-    type: 'GET',
-    success: function (data) {
-      console.log('Stepper value updated successfully:', data, value);
-    },
-    error: function (xhr, status, error) {
-      console.error('Error updating stepper value:', error, status);
+  fetch(`${apiUrl}/set_analogOut?pinNo=${pinon}&volts=${value}`, {
+    method: 'GET',
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
+    return response.json(); // Assuming response is JSON
+  })
+  .then(data => {
+    console.log('Stepper value updated successfully:', data, value);
+  })
+  .catch(error => {
+    console.error('Error updating stepper value:', error);
   });
 }
-$('#analogoutputvoltage-btn0').click(function () {
+document.getElementById('analogoutputvoltage-btn0').addEventListener('click', function () {
   var pinNo = 0;
-  var value = parseFloat($('#analogout0voltage').val());
+  var value = parseFloat(document.getElementById('analogout0voltage').value);
   setanalogOuts(pinNo, value);
-  console.log(pinNo, value)
+  console.log(pinNo, value);
 });
-$('#analogoutputvoltage-btn1').click(function () {
+
+document.getElementById('analogoutputvoltage-btn1').addEventListener('click', function () {
   var pinNo = 1;
-  var value = parseFloat($('#analogout1voltage').val());
+  var value = parseFloat(document.getElementById('analogout1voltage').value);
   setanalogOuts(pinNo, value);
-  console.log(pinNo, value)
+  console.log(pinNo, value);
 });
+
 // <================ = api get_analog input function end =====================>
 
 // <================ = api get_analog input function start =====================>
 function getanaloginput() {
-  $.ajax({
-    url: `${apiUrl}/get_analogIns`,
+  fetch(`${apiUrl}/get_analogIns`, {
     method: 'GET',
-    dataType: 'json', // Specify the expected data type of the response
-    success: function (data) {
-      console.log('get analog input is success', data.data);
-      $('#analoginputpin0').html(data.data[0]); // Show value with one decimal place
-      $('#analoginputpin1').html(data.data[1]);
-    },
-    error: function (xhr, status, error) {
-      // Handle errors
-      console.error('get get_analog input is Error:', status, error);
-
+    headers: {
+      'Content-Type': 'application/json'
     }
-  });
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('get analog input is success', data.data);
+      document.getElementById('analoginputpin0').innerHTML = data.data[0]; // Show value with one decimal place
+      document.getElementById('analoginputpin1').innerHTML = data.data[1];
+    })
+    .catch(error => {
+      console.error('get get_analog input is Error:', error);
+    });
+  
 }
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function() {
   getanaloginput();
 });
 
