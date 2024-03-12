@@ -1,27 +1,27 @@
 //   API URL
 const apiUrl = 'http://103.217.176.16:9094';
-const onledlight= `${apiUrl}/static/image/led-light-on.png`;
-const offledlight= `${apiUrl}/static/image/led-light-off.png`;
+const onledlight = `${apiUrl}/static/image/led-light-on.png`;
+const offledlight = `${apiUrl}/static/image/led-light-off.png`;
 // <====================== get relay function start ==============================>
 function getrelay() {
-     fetch(`${apiUrl}/get_relays`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    if (data && data.data) {
-      relayupdatebutton(data.data);
-      console.log('get Relay Array:', data.data);
-    } else {
-      console.error('Invalid API response format');
-    }
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });
+  fetch(`${apiUrl}/get_relays`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data && data.data) {
+        relayupdatebutton(data.data);
+        console.log('get Relay Array:', data.data);
+      } else {
+        console.error('Invalid API response format');
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
 
 }
 // <====================== get relay function end ==============================>
@@ -42,14 +42,14 @@ function relayupdatebutton(dataindex) {
       dataindex[index] = checkbox.checked;
       checkbox.checked = dataindex[index];
       console.log(checkbox.checked = dataindex[index]);
-        setrelay(index);
+      setrelay(index);
       // Toggle the LED based on the checkbox state
       const led = leds[index];
       if (checkbox.checked = dataindex[index]) {
         led.src = onledlight;
         console.log(`Relay ${index} is ON`);
       }
-       else {
+      else {
         led.src = offledlight;
         console.log(`Relay ${index} is OFF`);
       }
@@ -61,8 +61,8 @@ function relayupdatebutton(dataindex) {
       checkbox.checked = dataindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src =onledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = onledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
     else if (dataindex[index] === false) {
@@ -71,8 +71,8 @@ function relayupdatebutton(dataindex) {
       checkbox.checked = dataindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = offledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = offledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
   });
@@ -99,12 +99,12 @@ function setrelay(index) {
     .catch(error => {
       console.error('Error:', error);
     });
-  
+
 }
 
 // <====================== document ready get relay function start ==============================>
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   getrelay();
 });
 
@@ -130,9 +130,9 @@ function getdigitaloutput() {
     .catch(error => {
       console.error('get digital output is Error:', error);
     });
-  
+
 }
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   getdigitaloutput();
 });
 // button function digitaloutput
@@ -155,7 +155,8 @@ function digitaloutputbtn(digitaloutputindex) {
       if (checkbox.checked) {
         led.src = onledlight;
         console.log(`digital output ${index} is ON`);
-      } else {
+      }
+      else {
         led.src = offledlight;
         console.log(`digital output ${index} is OFF`);
       }
@@ -166,8 +167,8 @@ function digitaloutputbtn(digitaloutputindex) {
       checkbox.checked = digitaloutputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = onledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = onledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
     else if (digitaloutputindex[index] === false) {
@@ -176,13 +177,12 @@ function digitaloutputbtn(digitaloutputindex) {
       checkbox.checked = digitaloutputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src =offledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = offledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
   });
 }
-
 // setdigitaloutput api
 function setdigitaloutput(index) {
   fetch(`${apiUrl}/setDigitalOutPut?pinNo=${index}`, {
@@ -203,7 +203,7 @@ function setdigitaloutput(index) {
     .catch(error => {
       console.error('set digital output is Error:', error);
     });
-  
+
 }
 // <================= api get digital output function end =====================>
 // <================= api get digital input function start =====================>
@@ -227,10 +227,10 @@ function getdigitalinput() {
     .catch(error => {
       console.error('get digital input is Error:', error);
     });
-  
+
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
   getdigitalinput();
 });
@@ -253,7 +253,7 @@ function digitalinputbtn(digitalinputindex) {
         led.src = onledlight;
         console.log(`digital input ${index} is ON`);
       }
-       else {
+      else {
         led.src = offledlight;
         console.log(`digital input ${index} is OFF`);
       }
@@ -264,8 +264,8 @@ function digitalinputbtn(digitalinputindex) {
       checkbox.checked = digitalinputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = onledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = onledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
     else if (digitalinputindex[index] === false) {
@@ -274,8 +274,8 @@ function digitalinputbtn(digitalinputindex) {
       checkbox.checked = digitalinputindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = offledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = offledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
   });
@@ -303,10 +303,10 @@ function getgpios() {
     .catch(error => {
       console.error('get get_gpios is Error:', error);
     });
-  
+
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   getgpios();
 });
 
@@ -328,9 +328,9 @@ function gpiosbtn(gpiosindex) {
       if (checkbox.checked) {
         led.src = onledlight;
         console.log(`gpios ${index} is ON`);
-      } 
+      }
       else {
-        led.src =offledlight;
+        led.src = offledlight;
         console.log(`gpios ${index} is OFF`);
       }
     });
@@ -340,8 +340,8 @@ function gpiosbtn(gpiosindex) {
       checkbox.checked = gpiosindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = onledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = onledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
     else if (gpiosindex[index] === false) {
@@ -350,8 +350,8 @@ function gpiosbtn(gpiosindex) {
       checkbox.checked = gpiosindex[index];
       const led = leds[index];
       // if (checkbox.checked) {
-        led.src = offledlight;
-        // console.log(`Relay ${index} is ON`);
+      led.src = offledlight;
+      // console.log(`Relay ${index} is ON`);
       // }
     }
   });
@@ -382,14 +382,14 @@ function getanalogOuts() {
     .catch(error => {
       console.error('get get_analogOuts is Error:', error);
     });
-  
+
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   getanalogOuts();
 });
 // ==== 0 voltage stepper start 
-document.querySelector('#analogoutputnumbercontrol0 #analogoutputincrement0').addEventListener('click', function() {
+document.querySelector('#analogoutputnumbercontrol0 #analogoutputincrement0').addEventListener('click', function () {
   var inputField = this.parentNode.querySelector('input');
   var value = parseInt(inputField.value);
   inputField.value = value + 1;
@@ -397,7 +397,7 @@ document.querySelector('#analogoutputnumbercontrol0 #analogoutputincrement0').ad
 });
 
 
-document.querySelector('#analogoutputnumbercontrol0 #analogoutputdecrement0').addEventListener('click', function() {
+document.querySelector('#analogoutputnumbercontrol0 #analogoutputdecrement0').addEventListener('click', function () {
   var inputField = this.parentNode.querySelector('input');
   var value = parseInt(inputField.value);
   inputField.value = value - 1;
@@ -424,7 +424,7 @@ function toggleButtons0(value) {
 // ==== 0 voltage stepper end 
 
 // ==== 1 voltage stepper start 
-document.querySelector('#analogoutputnumbercontrol1 #analogoutputincrement1').addEventListener('click', function() {
+document.querySelector('#analogoutputnumbercontrol1 #analogoutputincrement1').addEventListener('click', function () {
   var inputField = this.parentNode.querySelector('input');
   var value = parseInt(inputField.value);
   inputField.value = value + 1;
@@ -465,18 +465,18 @@ function setanalogOuts(pinon, value) {
   fetch(`${apiUrl}/set_analogOut?pinNo=${pinon}&volts=${value}`, {
     method: 'GET',
   })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json(); // Assuming response is JSON
-  })
-  .then(data => {
-    console.log('Stepper value updated successfully:', data, value);
-  })
-  .catch(error => {
-    console.error('Error updating stepper value:', error);
-  });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Assuming response is JSON
+    })
+    .then(data => {
+      console.log('Stepper value updated successfully:', data, value);
+    })
+    .catch(error => {
+      console.error('Error updating stepper value:', error);
+    });
 }
 document.getElementById('analogoutputvoltage-btn0').addEventListener('click', function () {
   var pinNo = 0;
@@ -516,10 +516,84 @@ function getanaloginput() {
     .catch(error => {
       console.error('get get_analog input is Error:', error);
     });
-  
+
 }
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   getanaloginput();
 });
 
 // <================ = api get_analog input function end =====================>
+// <================ =  api function start =====================>
+// PWM-START API 
+function pwmStartApi(pin,cycle) {
+  fetch(`${apiUrl}/start_pwm?pinNo=${pin}&cycle=${cycle}`, {
+    method: 'GET',
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Assuming response is JSON
+    })
+    .then(data => {
+      console.log('Set start-pwm value updated successfully:', data);
+    })
+    .catch(error => {
+      console.error(' start-pwm Error updating stepper value:', error);
+    });
+};
+function pwmStopApi(pin) {
+  fetch(`${apiUrl}/stop_pwm?pinNo=${pin}`, {
+    method: 'GET',
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Assuming response is JSON
+    })
+    .then(data => {
+      console.log('Set start-pwm value updated successfully:', data);
+    })
+    .catch(error => {
+      console.error(' start-pwm Error updating stepper value:', error);
+    });
+};
+// global variable
+let selectedPin;
+let cyclevalue;
+function selectPwmAOption(selectElement) {
+  selectedPin = selectElement.value;
+  // console.log('pwm ', selectedPin)
+}
+function selectcycleOption(cycleselect) {
+  cyclevalue = cycleselect.value
+  // console.log('cycle', cyclevalue)
+}
+// window load cycle 
+document.addEventListener('DOMContentLoaded', function () {
+  const selectElement = document.querySelector(".cycle-form-select");
+
+  for (let i = 0; i <= 100; i++) {
+    let option = document.createElement("option");
+    option.value = i;
+    option.textContent = "Cycle " + i;
+    selectElement.appendChild(option);
+    // console.log(i)
+  }
+
+});
+// start button click
+document.getElementById('startclickfun').addEventListener('click', function (){
+  const pin= selectedPin;
+  const cycle= cyclevalue
+  console.log(pin,cycle)
+  pwmStartApi(pin,cycle)
+})
+// click stop button
+document.getElementById('stopclickfun').addEventListener('click', function (){
+  const pin= selectedPin;
+  console.log('stop button',pin)
+  pwmStopApi(pin)
+})
+// <================ = api bitfunction end =====================>

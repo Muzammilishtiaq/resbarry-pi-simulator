@@ -6,20 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi Simulator</title>
     <link rel="icon" type="image/x-icon" href="http://103.217.176.16:9094/static/image/favicon.ico">
-    <!-- <link rel="stylesheet" href="http://103.217.176.16:9094/static/css/style.css"> -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="http://103.217.176.16:9094/static/css/style.css">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
     <!-- bootstrap css -->
     <link href="http://103.217.176.16:9094/static/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="./css/bootstrap.css" rel="stylesheet"> -->
 
 </head>
 
 <body>
-    <div class="main-container"> <!-- three div create  (top-div) (middle-div) (bottom-div)-->
+    <div class="main-container">
+         <!-- three div create  (top-div) (middle-div) (bottom-div)-->
+        <div class="d-flex gap-3 align-items-center">
+            <h5 class="fw-bold fs-6">PWM A or B</h5>
+            <select class="form-select pin-select w-25 mx-3 my-2" aria-label="selectPwmAOption" onchange="selectPwmAOption(this)">
+                <option selected>Pin No</option>
+                <option value="0">PWM-A-0</option>
+                <option value="1">PWM-A-1</option>
+                <option value="2" >PWM-B-0</option>
+                <option value="3" >PWM-B-1</option>
+              </select>
+        </div>
+        <div class="d-flex gap-3 align-items-center">
+            <h5 class="fw-bold fs-6">Cycle Number</h5>
+            <select class="form-select cycle-form-select w-25 my-2 " aria-label="selectPwmAOption" onchange="selectcycleOption(this)">
+                <option selected>Cycle No</option>
+              </select>
+        </div>
+        <div class="d-flex gap-3 align-items-center my-2">
+            <button class="btn btn-primary" id="startclickfun">Start</button>
+            <button class="btn btn-primary" id="stopclickfun">Stop</button>
+    
+        </div>
         <!-- ======================top-div start ============================= -->
         <div class="top-div"> <!-- top-div-->
             <div class="top-div-left">
                 <!-- get_analogOuts start -->
-                <div class="analogoutput-div" >
+                <div class="analogoutput-div">
                     <h5 class="all-header-text">ANALOG OUTPUT</h5>
                     <div class="voltage-div">
                         <p class="all-para-text">ANALOG0</p>
@@ -47,7 +70,7 @@
                 </div>
                 <!-- get_analogOuts end -->
                 <!-- getgpios start -->
-                <div class="gpio-div" >
+                <div class="gpio-div">
                     <h5 class="all-header-text">GPIOS</h5>
                     <div class="gpio-div-flex">
                         <p class="all-para-text">GPIOS0</p>
@@ -99,20 +122,22 @@
 
             <div class="right">
                 <!-- get_analoginput start -->
-                <div class="analoginput-div" >
+                <div class="analoginput-div">
                     <h5 class="all-header-text">ANALOG INPUT</h5>
                     <div class="voltage-div">
-                        <p class="all-para-text">PIN 0 VOLTAGE : <span id="analoginputpin0" class="text-success fs-5 mt-5">0 </span></p>
+                        <p class="all-para-text">PIN 0 VOLTAGE : <span id="analoginputpin0"
+                                class="text-success fs-5 mt-5">0 </span></p>
                     </div>
                     <div class="voltage-div">
-                        <p class=" all-para-text">PIN 1 VOLTAGE : <span id="analoginputpin1" class="text-success fs-5 mt-5">0</span></p>
+                        <p class=" all-para-text">PIN 1 VOLTAGE : <span id="analoginputpin1"
+                                class="text-success fs-5 mt-5">0</span></p>
                     </div>
                     <div class="analoginput0-wire"></div>
                     <div class="analoginput1-wire"></div>
                 </div>
                 <!-- get_analog input end -->
                 <!-- digital input button start -->
-                <div class="digitalinput-div" >
+                <div class="digitalinput-div">
                     <h5 class="all-header-text">DIGITAL INPUT</h5>
                     <div class="gpio-div-flex">
                         <p class="all-para-text">DI-0</p>
@@ -125,7 +150,7 @@
                             class="led-light" id="digital-input-led-light">
                     </div>
                     <div class="gpio-div-flex">
-                        <p class="all-para-text" >DI-1</p>
+                        <p class="all-para-text">DI-1</p>
                         <div class="button r button-3" id="digitalinputbutton">
                             <input type="checkbox" class="checkbox" id="relatstate" />
                             <div class="knobs"></div>
@@ -225,7 +250,7 @@
         <div class="bottom-div">
             <div class="left">
                 <!-- digital output button start -->
-                <div class="DigitalOutput-div" >
+                <div class="DigitalOutput-div">
                     <h5 class="all-header-text">DIGITAL OUTPUT</h5>
                     <div class="gpio-div-flex">
                         <p class="all-para-text">DO-0</p>
@@ -333,9 +358,10 @@
 
     </div>
 
+    <!-- <script src="./js/bootstrap.js"></script> -->
     <script src="http://103.217.176.16:9094/static/js/bootstrap.js"></script>
-    <!-- <script src="http://103.217.176.16:9094/static/js/script.js"></script> -->
-    <script src="./js/script.js"></script>
+    <script src="http://103.217.176.16:9094/static/js/script.js"></script>
+    <!-- <script src="./js/script.js"></script> -->
 
 </body>
 
