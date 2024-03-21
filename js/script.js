@@ -574,7 +574,7 @@ function selectcycleOption(cycleselect) {
 document.addEventListener('DOMContentLoaded', function () {
   const selectElement = document.querySelector(".cycle-form-select");
 
-  for (let i = 0; i <= 100; i++) {
+  for (let i = 0; i <= 255; i++) {
     let option = document.createElement("option");
     option.value = i;
     option.textContent = "Cycle " + i;
